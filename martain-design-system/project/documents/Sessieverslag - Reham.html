@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessieverslag — Reham · MartAIn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root{
+    --blue:#0061D1; --violet:#7A2BD6; --sky:#15B4FD; --ink:#0A1640;
+    --body:#1E2A4A; --muted:#5D6A8B; --line:#DDE4EF; --line-soft:#EEF2F9;
+    --bg:#EDF1F8; --paper:#FFFFFF; --success:#1F9D6B; --success-bg:#E6F6EF;
+    --font-d:'Poppins',system-ui,sans-serif; --font-b:'Plus Jakarta Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);font-family:var(--font-b);color:var(--body);-webkit-font-smoothing:antialiased;line-height:1.62}
+
+  /* ---- page ---- */
+  .page{width:210mm;min-height:297mm;margin:24px auto;background:var(--paper);
+        padding:24mm 22mm 22mm;box-shadow:0 10px 40px rgba(10,22,64,.12);position:relative}
+
+  /* ---- masthead ---- */
+  .mast{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding-bottom:18px}
+  .mast .brand{display:flex;align-items:center;gap:11px}
+  .mast .brand img{height:34px;width:auto}
+  .mast .wm{font-family:var(--font-d);font-weight:800;font-size:23px;letter-spacing:-.02em;line-height:1;
+            background:linear-gradient(95deg,#0061D1,#2E72E8 40%,#18B2FB 52%,#7A2BD6 100%);
+            -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .mast .doctype{font-family:var(--font-d);font-weight:600;text-transform:uppercase;letter-spacing:.16em;
+                 font-size:11px;color:var(--blue);text-align:right;padding-top:7px}
+  .rule{height:3px;border-radius:3px;background:linear-gradient(95deg,#0061D1,#18B2FB 52%,#7A2BD6);margin-bottom:26px}
+
+  /* ---- title + meta ---- */
+  h1.title{font-family:var(--font-d);font-weight:700;font-size:30px;line-height:1.12;letter-spacing:-.02em;
+           color:var(--ink);margin:0 0 20px}
+  .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:26px}
+  .meta .cell{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .meta .cell:nth-child(2n){border-right:none}
+  .meta .cell:nth-last-child(-n+2){border-bottom:none}
+  .meta .k{font-family:var(--font-d);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:3px}
+  .meta .v{font-size:14px;color:var(--ink);font-weight:500}
+
+  /* ---- management summary ---- */
+  .summary{background:var(--line-soft);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:34px}
+  .summary .lab{font-family:var(--font-d);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--blue);margin-bottom:8px}
+  .summary p{margin:0;font-size:14.5px;color:var(--body)}
+
+  /* ---- sections ---- */
+  section.block{margin-bottom:30px}
+  .shead{display:flex;align-items:baseline;gap:14px;margin-bottom:12px}
+  .snum{flex:none;font-family:var(--font-d);font-weight:700;font-size:13px;color:#fff;
+        width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+        background:linear-gradient(135deg,#0061D1,#7A2BD6);align-self:center}
+  .shead h2{font-family:var(--font-d);font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink);margin:0;line-height:1.2}
+  .block .body{padding-left:42px}
+  .block p{margin:0 0 12px;font-size:14px}
+  h3.sub{font-family:var(--font-d);font-weight:600;font-size:14px;color:var(--ink);margin:16px 0 6px}
+
+  /* labelled status / steps */
+  .tag-row{display:flex;align-items:center;gap:10px;margin:6px 0 12px}
+  .pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-d);font-weight:600;font-size:12px;
+        padding:4px 11px;border-radius:999px;background:var(--success-bg);color:var(--success)}
+  .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--success)}
+  .deflist{margin:4px 0 12px}
+  .deflist .lab{font-family:var(--font-d);font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--violet);margin-bottom:3px}
+  .deflist.steps .lab{color:var(--blue)}
+  .deflist p{margin:0 0 4px}
+
+  /* ---- action table ---- */
+  .at-head{display:flex;align-items:baseline;gap:14px;margin:0 0 14px}
+  .at-head .snum{background:var(--ink)}
+  table.actions{width:100%;border-collapse:collapse;font-size:13px}
+  table.actions thead th{background:var(--ink);color:#fff;font-family:var(--font-d);font-weight:600;
+        font-size:11px;text-transform:uppercase;letter-spacing:.08em;text-align:left;padding:11px 13px}
+  table.actions thead th:first-child{border-radius:8px 0 0 0;width:34px;text-align:center}
+  table.actions thead th:last-child{border-radius:0 8px 0 0;white-space:nowrap}
+  table.actions td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.actions td:first-child{text-align:center;font-family:var(--font-d);font-weight:700;color:var(--blue)}
+  table.actions tbody tr:nth-child(2n){background:var(--line-soft)}
+  table.actions .owner{font-weight:500;color:var(--ink)}
+  table.actions .term{white-space:nowrap;color:var(--muted)}
+
+  /* ---- footer ---- */
+  .docfoot{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+           display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:11.5px;color:var(--muted)}
+  .docfoot .sig{font-family:var(--font-b);font-style:italic}
+  .docfoot strong{color:var(--ink);font-style:normal;font-weight:600}
+
+  @media print{
+    body{background:#fff}
+    .page{margin:0;box-shadow:none;width:auto;min-height:0;padding:16mm 16mm 14mm}
+    @page{size:A4;margin:0}
+    section.block,.summary,.at-wrap{break-inside:avoid}
+    table.actions{break-inside:auto}
+    table.actions tr{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- masthead -->
+  <div class="mast">
+    <div class="brand">
+      <img src="../assets/logo-mark.png" alt="MartAIn">
+      <span class="wm">MartAIn</span>
+    </div>
+    <div class="doctype">Sessieverslag</div>
+  </div>
+  <div class="rule"></div>
+
+  <!-- title + meta -->
+  <h1 class="title">Sessiesamenvatting — Reham</h1>
+  <div class="meta">
+    <div class="cell"><div class="k">Datum</div><div class="v">Donderdag 4 juni 2026</div></div>
+    <div class="cell"><div class="k">Tijd</div><div class="v">08:45 – 11:10</div></div>
+    <div class="cell"><div class="k">Deelnemers</div><div class="v">Fabian (Reham) &amp; MartAIn</div></div>
+    <div class="cell"><div class="k">Opgesteld door</div><div class="v">MartAIn</div></div>
+  </div>
+
+  <!-- management summary -->
+  <div class="summary">
+    <div class="lab">Samenvatting</div>
+    <p>In deze sessie is een werkende AI-workflow opgezet voor het verwerken van woningteksten naar Realworks CRM, zijn algemene werkafspraken voor het gebruik van AI gemaakt, en is de websitestrategie van Reham doorgenomen — inclusief een live audit. De belangrijkste vervolgstappen liggen bij het in de praktijk beproeven van de custom GPT, een SEO-nulmeting en technisch onderzoek naar de Realworks API-koppeling. Tien concrete actiepunten zijn vastgelegd met eigenaren en termijnen (zie tabel).</p>
+  </div>
+
+  <!-- 1 -->
+  <section class="block">
+    <div class="shead"><span class="snum">1</span><h2>AI-workflow: ChatGPT voor tekstverwerking naar Realworks CRM</h2></div>
+    <div class="body">
+      <h3 class="sub">Wat is gedaan</h3>
+      <p>Er is een custom ChatGPT opgezet om de inputstroom van woningbeschrijvingen sneller en consistenter te verwerken naar publiceerbare teksten in Realworks CRM. Hiervoor is een gedeelde GPT ingericht binnen Reham, onder andere door het omzetten van een personal Pro-account naar een Business Pro-account. Prompt en output-template zijn bewust van elkaar gescheiden, zodat het template altijd leidend blijft in de opmaak en structuur van de output.</p>
+      <div class="tag-row"><span class="pill"><span class="dot"></span>Status: werkend en gereed voor gebruik</span></div>
+      <div class="deflist steps">
+        <div class="lab">Vervolgstappen</div>
+        <p>De komende één à twee maanden uitproberen in de praktijk en bijhouden welke output niet naar wens is. Na die periode evalueren wat er structureel misgaat en de prompt op basis daarvan verbeteren.</p>
+      </div>
+      <div class="deflist">
+        <div class="lab">Toekomstvisie (langere termijn)</div>
+        <p>Opnameformulieren meenemen als brontekst zodat alle relevante punten automatisch worden gedekt. Verdere automatisering door het klantgesprek op te nemen, gecombineerd met een checklist voor de makelaar. Uiteindelijk doel: de makelaar kan nog vóór vertrek zien of er open vragen zijn, op basis van een gespreksopname als bron voor de tekst.</p>
+        <p>Daarnaast is het onderzoeken waard of de gegenereerde output via een importbestand in Realworks gezet kan worden in plaats van alle velden handmatig te kopiëren. De custom ChatGPT levert dan een exportbestand dat direct geïmporteerd wordt in Realworks — een aanzienlijke tijdswinst.</p>
+        <p>Ook biedt de output bij het aanmaken van een woning direct kansen voor automatische social media posts, die gepland kunnen worden via een planningstool of Meta Business. Dit is een logische toekomstige uitbreiding van de workflow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="block">
+    <div class="shead"><span class="snum">2</span><h2>AI-gebruik: algemene tips en werkmethode</h2></div>
+    <div class="body">
+      <p>Werk met projecten in Claude of ChatGPT wanneer je context en geheugen wilt bewaren binnen een bepaalde scope (bijv. "Reham marktonderzoek", "Reham strategie", "personeelszaken"). Dergelijke structurele kennisprojecten lenen zich goed voor Claude, maar persoonlijke ervaring met beide tools bepaalt uiteindelijk wat het beste werkt. Beide platforms met projecten gebruiken geeft een goede vergelijkingsbasis.</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="block">
+    <div class="shead"><span class="snum">3</span><h2>Websitestrategie Reham</h2></div>
+    <div class="body">
+      <h3 class="sub">Brainstorm en audit</h3>
+      <p>Er is een Claude-project aangemaakt met een gerichte context voor de Reham-websitestrategie. Een eerste prompt is geschreven om de huidige site te analyseren en concrete verbeterpunten op te halen. Via Claude is direct een live audit uitgevoerd; hieruit kwamen zowel technische verbeterpunten als eenvoudige fouten (verkeerd jaartal, kapotte links).</p>
+
+      <h3 class="sub">Websitebeheer zonder externe afhankelijkheid</h3>
+      <p>MartAIn heeft laten zien hoe je met een eenvoudige AI-setup de website kunt onderhouden zonder daarvoor externen in te hoeven schakelen. Een virtual assistant of een klein marketingbureau zou dit ook kunnen oppakken als er intern niemand beschikbaar is. Het maken van landingspagina's en blogs wordt zo een kwestie van praten met een prompt in plaats van iets bouwen in een CMS.</p>
+
+      <h3 class="sub">SEO/GEO en content</h3>
+      <p>Landingspagina's zoals "makelaar Westdorpe" zijn bekeken. De huidige content is mogelijk te dun: teksten lijken te veel op elkaar en missen diepgang. Kansen liggen bij zoekopdrachten als "beste makelaar Hulst", "woning te koop Hulst" en "woning te koop Terneuzen". Uit een check na het gesprek bleek dat Reham bij "makelaar Hulst" niet organisch verschijnt, alleen als gesponsord resultaat en/of als profiel.</p>
+      <p>Google straft dunne SEO/GEO-content inmiddels af. MartAIn adviseert te investeren in kwalitatieve content: blogs, klantverhalen en feitelijke informatie uit bronnen zoals ZVA. De reeds geschreven ZVA-columns kunnen hiervoor direct worden ingezet. Eerst de huidige positie in kaart brengen via een SEO-nulmeting, vóórdat verbeteringen richting GEO worden doorgevoerd.</p>
+
+      <h3 class="sub">Aanpak websiteverbetering</h3>
+      <p>MartAIn adviseert de site stap voor stap te verbeteren in plaats van alles tegelijk te vernieuwen, om bestaande Google-rankings niet te verliezen door het verdwijnen van content. Voorstel: de huidige site clonen naar een nieuwe omgeving en daar stapsgewijs met versiebeheer verbeteringen doorvoeren. Kleine stappen richting de beste makelaarssite van Nederland. Websiteverbetering structureel onderdeel maken van de bedrijfsstrategie en integreren in de dagelijkse bedrijfsvoering.</p>
+
+      <h3 class="sub">API-koppeling Realworks</h3>
+      <p>De API-koppeling met Realworks vraagt nog wat technisch werk, maar biedt bij realisatie kansen voor automatische leadaanmaak, follow-ups en agenda-invites vanuit het CRM. Eerste prioriteit is het woningaanbod automatisch importeren in de nieuwe site via de API, waarvoor een database ingericht moet worden. Dit vraagt een kort technisch onderzoek.</p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="block">
+    <div class="shead"><span class="snum">4</span><h2>Losse observaties website</h2></div>
+    <div class="body">
+      <p>De huidige site voelt traag en performance verdient aandacht. Een betere WhatsApp-integratie met een directe link als CTA op meerdere pagina's is het overwegen waard. De social share-functionaliteit kan worden geüpdatet: Twitter verwijderen en vervangen door WhatsApp, Instagram en Facebook.</p>
+    </div>
+  </section>
+
+  <!-- actiepunten -->
+  <div class="at-wrap">
+    <div class="at-head"><span class="snum">★</span><h2 style="font-family:var(--font-d);font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink);margin:0">Actiepunten</h2></div>
+    <table class="actions">
+      <thead><tr><th>#</th><th>Actie</th><th>Eigenaar</th><th>Termijn</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Custom GPT uitproberen, afwijkende output noteren</td><td class="owner">Fabian / team Reham</td><td class="term">1 à 2 maanden</td></tr>
+        <tr><td>2</td><td>Evaluatie prompt en output GPT</td><td class="owner">Fabian + MartAIn</td><td class="term">Over 1 à 2 maanden</td></tr>
+        <tr><td>3</td><td>Onderzoeken importmogelijkheid Realworks (exportbestand vanuit GPT)</td><td class="owner">MartAIn / Technisch</td><td class="term">Kort termijn</td></tr>
+        <tr><td>4</td><td>SEO-nulmeting uitvoeren</td><td class="owner">Reham / MartAIn</td><td class="term">Kort termijn</td></tr>
+        <tr><td>5</td><td>ZVA-columns verwerken tot blogs</td><td class="owner">Reham</td><td class="term">Lopend</td></tr>
+        <tr><td>6</td><td>Technisch onderzoek API-koppeling Realworks + database aanbod</td><td class="owner">Technisch / MartAIn</td><td class="term">Kort termijn</td></tr>
+        <tr><td>7</td><td>Huidige site clonen naar nieuwe omgeving</td><td class="owner">Technisch</td><td class="term">Kort termijn</td></tr>
+        <tr><td>8</td><td>Social share updaten (Twitter weg, WhatsApp/Instagram/Facebook)</td><td class="owner">Reham / webbeheer</td><td class="term">Kort termijn</td></tr>
+        <tr><td>9</td><td>WhatsApp CTA-integratie beoordelen en implementeren</td><td class="owner">Reham</td><td class="term">Kort termijn</td></tr>
+        <tr><td>10</td><td>Social posts automatiseren vanuit Realworks output</td><td class="owner">MartAIn / Reham</td><td class="term">Langere termijn</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- footer -->
+  <div class="docfoot">
+    <span class="sig">Opgesteld door <strong>MartAIn</strong> — AI praktisch en verantwoord ingezet voor mkb.</span>
+    <span>Pagina 1</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-sans);background:var(--bg-surface);padding:24px 30px;display:flex;gap:18px;align-items:stretch}
+  .tile{flex:1;border-radius:var(--radius-md);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;border:1px solid var(--border)}
+  .tile img{height:74px}
+  .dk{background:var(--grad-deep);border:none}
+  .br{background:var(--grad-brand);border:none}
+  .cap{font-family:var(--font-mono);font-size:11px;color:var(--fg-muted)}
+  .cap.w{color:rgba(255,255,255,.8)}
+</style></head>
+<body>
+  <div class="tile"><img src="../assets/logo-mark.png" alt="brain mark"><div class="cap">full color</div></div>
+  <div class="tile dk"><img src="../assets/logo-mark-white.png" alt="brain mark white"><div class="cap w">on deep</div></div>
+  <div class="tile br"><img src="../assets/logo-mark-white.png" alt="brain mark white"><div class="cap w">on brand</div></div>
+</body></html>

@@ -1,0 +1,215 @@
+/* ============================================================
+   MartAIn — Design Tokens : Color & Type
+   "Praktische AI voor ondernemers"
+   Foundations derived from the brand logo (gradient wordmark +
+   blue→violet circuit-brain mark).
+   ============================================================ */
+
+/* --- Webfonts (substitutes — see README font note) ----------
+   Display/headings: Poppins   (geometric, echoes the bold wordmark)
+   Body/UI:          Plus Jakarta Sans
+   Accent italic:    Lora       (echoes the logo's serif subline)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@1,400;1,500;1,600&display=swap');
+
+:root {
+  /* ---------- BRAND CORE ---------- */
+  --brand-blue:        #0061D1;  /* "Mart" cobalt — primary */
+  --brand-blue-bright: #1E6BEA;  /* mid royal blue */
+  --brand-sky:         #15B4FD;  /* cyan highlight (brain left lobe) */
+  --brand-violet:      #7A2BD6;  /* "AI/n" violet */
+  --brand-indigo:      #3A1FB8;  /* deep circuit indigo */
+  --brand-ink:         #0A1640;  /* tagline navy — primary ink */
+
+  /* ---------- PRIMARY (blue) SCALE ---------- */
+  --blue-50:  #ECF3FE;
+  --blue-100: #D6E4FC;
+  --blue-200: #AEC9F8;
+  --blue-300: #7BA6F2;
+  --blue-400: #3F7DEC;
+  --blue-500: #0061D1;  /* = brand-blue */
+  --blue-600: #0052B0;
+  --blue-700: #06408A;
+  --blue-800: #0A3066;
+  --blue-900: #0A2348;
+
+  /* ---------- VIOLET SCALE ---------- */
+  --violet-50:  #F4EDFD;
+  --violet-100: #E7D8FB;
+  --violet-200: #CFB1F4;
+  --violet-300: #B084EB;
+  --violet-400: #9450E1;
+  --violet-500: #7A2BD6;  /* = brand-violet */
+  --violet-600: #6420BC;
+  --violet-700: #4F1A96;
+  --violet-800: #3A1574;
+  --violet-900: #281052;
+
+  /* ---------- SKY / CYAN SCALE ---------- */
+  --sky-100: #D4F1FE;
+  --sky-300: #7FD4FE;
+  --sky-500: #15B4FD;
+  --sky-700: #0B82BE;
+
+  /* ---------- NEUTRALS (cool, navy-tinted) ---------- */
+  --white:    #FFFFFF;
+  --ink:      #0A1640;  /* headings / strong text */
+  --gray-900: #111B36;
+  --gray-800: #1E2A4A;  /* body text */
+  --gray-700: #3A476A;
+  --gray-600: #5D6A8B;  /* muted / secondary text, logo rule line */
+  --gray-500: #8893AD;
+  --gray-400: #AAB3C7;
+  --gray-300: #DDE4EF;  /* borders */
+  --gray-200: #E8EDF6;
+  --gray-150: #EEF2F9;  /* subtle fills */
+  --gray-100: #F6F8FC;  /* page background */
+  --gray-50:  #FBFCFE;
+
+  /* ---------- SEMANTIC ---------- */
+  --success:    #1F9D6B;
+  --success-bg: #E6F6EF;
+  --warning:    #E0930C;
+  --warning-bg: #FCF3E1;
+  --error:      #DC3B4B;
+  --error-bg:   #FCE9EB;
+  --info:       var(--brand-blue);
+  --info-bg:    var(--blue-50);
+
+  /* ---------- SURFACES / ROLES ---------- */
+  --bg-page:      var(--gray-100);
+  --bg-surface:   var(--white);
+  --bg-subtle:    var(--gray-150);
+  --bg-ink:       var(--brand-ink);   /* dark sections */
+  --fg-default:   var(--gray-800);
+  --fg-strong:    var(--ink);
+  --fg-muted:     var(--gray-600);
+  --fg-on-dark:   #EAF0FB;
+  --fg-on-brand:  #FFFFFF;
+  --border:       var(--gray-300);
+  --border-strong:var(--gray-400);
+  --ring:         var(--brand-blue);
+
+  /* ---------- GRADIENTS (the brand signature) ---------- */
+  --grad-brand:    linear-gradient(95deg, #0061D1 0%, #2E72E8 38%, #18B2FB 52%, #7A2BD6 100%);
+  --grad-brand-rev:linear-gradient(95deg, #7A2BD6 0%, #18B2FB 48%, #0061D1 100%);
+  --grad-deep:     linear-gradient(135deg, #0A1640 0%, #122A6E 45%, #3A1FB8 100%);
+  --grad-mark:     linear-gradient(120deg, #15B4FD 0%, #0061D1 50%, #7A2BD6 100%); /* brain */
+  --grad-sky:      linear-gradient(120deg, #15B4FD 0%, #0061D1 100%);
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-display: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans:    'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif:   'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Type scale (1.250 major-third on a 16px base) */
+  --text-xs:   12px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   25px;
+  --text-2xl:  31px;
+  --text-3xl:  39px;
+  --text-4xl:  49px;
+  --text-5xl:  61px;
+  --text-6xl:  76px;
+
+  --leading-tight: 1.12;
+  --leading-snug:  1.28;
+  --leading-normal:1.55;
+  --leading-relax: 1.7;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.06em;
+  --tracking-caps:   0.14em;  /* the logo tagline lockup spacing */
+
+  /* ---------- RADII ---------- */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---------- SHADOWS (cool navy-tinted) ---------- */
+  --shadow-xs: 0 1px 2px rgba(10,22,64,0.06);
+  --shadow-sm: 0 1px 3px rgba(10,22,64,0.08), 0 1px 2px rgba(10,22,64,0.04);
+  --shadow-md: 0 6px 16px rgba(10,22,64,0.10), 0 2px 6px rgba(10,22,64,0.06);
+  --shadow-lg: 0 16px 40px rgba(10,22,64,0.14), 0 4px 12px rgba(10,22,64,0.08);
+  --shadow-xl: 0 28px 70px rgba(10,22,64,0.18);
+  --shadow-brand: 0 12px 30px rgba(0,97,209,0.30);
+  --shadow-violet: 0 12px 30px rgba(122,43,214,0.28);
+
+  /* ---------- SPACING (4px base) ---------- */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;  --space-8: 32px;  --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+
+  /* ---------- MOTION ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES  (opt-in via .ds-prose or direct use)
+   ============================================================ */
+.ds-h1, h1.ds {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-5xl); line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight); color: var(--fg-strong);
+}
+.ds-h2, h2.ds {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-4xl); line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight); color: var(--fg-strong);
+}
+.ds-h3, h3.ds {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: var(--text-2xl); line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight); color: var(--fg-strong);
+}
+.ds-h4 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: var(--text-xl); line-height: var(--leading-snug); color: var(--fg-strong);
+}
+.ds-eyebrow {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: var(--text-sm); text-transform: uppercase;
+  letter-spacing: var(--tracking-caps); color: var(--brand-blue);
+}
+.ds-lead {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: var(--text-lg); line-height: var(--leading-relax); color: var(--fg-default);
+}
+.ds-body, p.ds {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: var(--text-base); line-height: var(--leading-normal); color: var(--fg-default);
+}
+.ds-small {
+  font-family: var(--font-sans); font-size: var(--text-sm);
+  line-height: var(--leading-normal); color: var(--fg-muted);
+}
+.ds-serif-italic {
+  font-family: var(--font-serif); font-style: italic;
+  font-weight: 500; color: var(--fg-muted);
+}
+.ds-code {
+  font-family: var(--font-mono); font-size: 0.9em;
+  background: var(--gray-150); border: 1px solid var(--border);
+  padding: 0.1em 0.4em; border-radius: var(--radius-xs); color: var(--violet-700);
+}
+
+/* Brand gradient text — the wordmark signature */
+.ds-grad-text {
+  background: var(--grad-brand);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}

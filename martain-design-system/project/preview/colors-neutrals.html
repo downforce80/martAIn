@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-surface);padding:26px 30px;font-family:var(--font-mono)}
+  .scale{display:flex;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border)}
+  .step{flex:1;height:96px;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;font-size:10px;color:#fff}
+  .step.dk{color:var(--ink)}
+  .label{font-family:var(--font-display);font-weight:700;font-size:14px;margin:0 0 12px;color:var(--fg-strong)}
+</style></head>
+<body>
+  <div class="label">Neutrals · cool navy-tinted</div>
+  <div class="scale">
+    <div class="step dk" style="background:var(--gray-50)">50</div>
+    <div class="step dk" style="background:var(--gray-100)">100</div>
+    <div class="step dk" style="background:var(--gray-200)">200</div>
+    <div class="step dk" style="background:var(--gray-300)">300</div>
+    <div class="step dk" style="background:var(--gray-400)">400</div>
+    <div class="step" style="background:var(--gray-500)">500</div>
+    <div class="step" style="background:var(--gray-600)">600</div>
+    <div class="step" style="background:var(--gray-700)">700</div>
+    <div class="step" style="background:var(--gray-800)">800</div>
+    <div class="step" style="background:var(--gray-900)">900</div>
+  </div>
+</body></html>

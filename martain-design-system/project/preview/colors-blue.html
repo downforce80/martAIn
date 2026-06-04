@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-surface);padding:26px 30px;font-family:var(--font-mono)}
+  .scale{display:flex;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border)}
+  .step{flex:1;height:96px;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;color:#fff;font-size:10px}
+  .step.dk{color:var(--ink)}
+  .label{font-family:var(--font-display);font-weight:700;font-size:14px;margin:0 0 12px;color:var(--fg-strong)}
+</style></head>
+<body>
+  <div class="label">Primary · Blue</div>
+  <div class="scale">
+    <div class="step dk" style="background:var(--blue-50)">50</div>
+    <div class="step dk" style="background:var(--blue-100)">100</div>
+    <div class="step dk" style="background:var(--blue-200)">200</div>
+    <div class="step dk" style="background:var(--blue-300)">300</div>
+    <div class="step" style="background:var(--blue-400)">400</div>
+    <div class="step" style="background:var(--blue-500)">500</div>
+    <div class="step" style="background:var(--blue-600)">600</div>
+    <div class="step" style="background:var(--blue-700)">700</div>
+    <div class="step" style="background:var(--blue-800)">800</div>
+    <div class="step" style="background:var(--blue-900)">900</div>
+  </div>
+</body></html>

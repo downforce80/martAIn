@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-surface);padding:26px 30px;font-family:var(--font-sans)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .item{display:flex;flex-direction:column;gap:8px}
+  .chip{height:54px;border-radius:var(--radius-sm);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px}
+  .nm{font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--fg-strong)}
+  .hx{font-family:var(--font-mono);font-size:11px;color:var(--fg-muted)}
+</style></head>
+<body>
+  <div class="grid">
+    <div class="item"><div class="chip" style="background:var(--success-bg);color:var(--success);border-color:var(--success)">Aa</div><div><div class="nm">Success</div><div class="hx">#1F9D6B</div></div></div>
+    <div class="item"><div class="chip" style="background:var(--warning-bg);color:var(--warning);border-color:var(--warning)">Aa</div><div><div class="nm">Warning</div><div class="hx">#E0930C</div></div></div>
+    <div class="item"><div class="chip" style="background:var(--error-bg);color:var(--error);border-color:var(--error)">Aa</div><div><div class="nm">Error</div><div class="hx">#DC3B4B</div></div></div>
+    <div class="item"><div class="chip" style="background:var(--info-bg);color:var(--info);border-color:var(--info)">Aa</div><div><div class="nm">Info</div><div class="hx">#0061D1</div></div></div>
+  </div>
+</body></html>
