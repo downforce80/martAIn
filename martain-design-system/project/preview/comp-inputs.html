@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-surface);padding:26px 30px;font-family:var(--font-sans);display:flex;gap:20px}
+  .field{flex:1;display:flex;flex-direction:column;gap:7px}
+  label{font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--fg-strong)}
+  input{font-family:var(--font-sans);font-size:15px;padding:11px 14px;border:1px solid var(--border);
+        border-radius:var(--radius-sm);background:#fff;color:var(--fg-strong);outline:none}
+  input::placeholder{color:var(--gray-400)}
+  .focused{border-color:var(--brand-blue);box-shadow:0 0 0 3px rgba(0,97,209,.18)}
+  .hint{font-size:12px;color:var(--fg-muted)}
+  .err input{border-color:var(--error);box-shadow:0 0 0 3px rgba(220,59,75,.15)}
+  .err .hint{color:var(--error)}
+</style></head>
+<body>
+  <div class="field">
+    <label>Naam</label>
+    <input class="focused" value="Martijn">
+    <span class="hint">Actieve / focus-status</span>
+  </div>
+  <div class="field">
+    <label>E-mailadres</label>
+    <input placeholder="jij@bedrijf.nl">
+    <span class="hint">Standaard veld</span>
+  </div>
+  <div class="field err">
+    <label>Telefoon</label>
+    <input value="06-123">
+    <span class="hint">Vul een geldig nummer in</span>
+  </div>
+</body></html>

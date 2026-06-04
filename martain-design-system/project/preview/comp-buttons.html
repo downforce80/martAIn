@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{background:var(--bg-surface);padding:26px 30px;font-family:var(--font-sans)}
+  .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .btn{font-family:var(--font-display);font-weight:600;font-size:15px;border:none;border-radius:var(--radius-sm);
+       padding:12px 20px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all var(--dur-base) var(--ease-out)}
+  .primary{background:var(--brand-blue);color:#fff;box-shadow:var(--shadow-brand)}
+  .grad{background:var(--grad-brand);color:#fff;box-shadow:var(--shadow-brand)}
+  .secondary{background:var(--blue-50);color:var(--brand-blue)}
+  .ghost{background:transparent;color:var(--brand-blue);border:1.5px solid var(--border-strong)}
+  .pill{border-radius:var(--radius-pill)}
+  .disabled{background:var(--gray-300);color:var(--gray-500);box-shadow:none;cursor:not-allowed}
+  .ico{width:17px;height:17px}
+  .lbl{font-family:var(--font-mono);font-size:11px;color:var(--fg-muted);margin-bottom:8px}
+</style></head>
+<body>
+  <div class="lbl">Primary · Gradient · Secondary · Ghost</div>
+  <div class="row">
+    <button class="btn primary">Plan een kennismaking</button>
+    <button class="btn grad">Start nu</button>
+    <button class="btn secondary">Bekijk wat ik doe</button>
+    <button class="btn ghost">Meer weten</button>
+  </div>
+  <div class="lbl">Pill · Disabled</div>
+  <div class="row">
+    <button class="btn primary pill">Neem contact op</button>
+    <button class="btn disabled">Niet beschikbaar</button>
+  </div>
+</body></html>
