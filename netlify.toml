@@ -1,0 +1,11 @@
+[build]
+  # Static site — no build step. React/Babel/Lucide load via CDN and
+  # the JSX is compiled in the browser.
+  publish = "martain-design-system/project"
+  command = ""
+
+# Serve the website at the root URL.
+[[redirects]]
+  from = "/"
+  to = "/ui_kits/website/"
+  status = 302
