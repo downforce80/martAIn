@@ -4,8 +4,8 @@
   publish = "martain-design-system/project"
   command = ""
 
-# Serve the website at the root URL.
+# Serve the website UI kit at the root URL (rewrite: the URL stays "/").
 [[redirects]]
   from = "/"
-  to = "/ui_kits/website/"
-  status = 302
+  to = "/ui_kits/website/index.html"
+  status = 200
