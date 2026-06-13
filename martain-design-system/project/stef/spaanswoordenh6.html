@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulario — Capítulo 6</title>
+<style>
+  :root{
+    --sea:#0a6b8a;
+    --sea2:#0d5a73;
+    --sand:#f6efe2;
+    --sand2:#efe4cf;
+    --ink:#10242c;
+    --sun:#ffb02e;
+    --coral:#ff5d4d;
+    --foam:#1ec8c8;
+    --dim:#6f8a92;
+    --line:#d9cdb6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Segoe UI",system-ui,sans-serif;
+    background:
+      radial-gradient(800px 460px at 85% -8%, rgba(30,200,200,.18), transparent 60%),
+      radial-gradient(700px 460px at 5% 105%, rgba(255,176,46,.18), transparent 60%),
+      var(--sand);
+    color:var(--ink);min-height:100vh;padding:18px 14px 60px;
+  }
+  .wrap{max-width:560px;margin:0 auto}
+  header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+  .title .es{font-size:36px;font-weight:800;color:var(--sea);letter-spacing:-1px;line-height:.9}
+  .title .nl{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;margin-top:6px}
+  .score{text-align:right;font-variant-numeric:tabular-nums}
+  .score .n{font-size:28px;font-weight:800;color:var(--coral);line-height:1}
+  .score .l{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1px}
+
+  .tabs{display:flex;gap:8px;margin-bottom:12px}
+  .tab{flex:1;background:#fff;border:1px solid var(--line);color:var(--dim);padding:11px 6px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;transition:.15s;text-align:center}
+  .tab.active{color:#fff;background:var(--sea);border-color:var(--sea)}
+
+  .filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:8px;align-items:center}
+  .chip{background:#fff;border:1px solid var(--line);color:var(--ink);padding:7px 12px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;transition:.12s}
+  .chip.active{background:var(--sun);color:var(--ink);border-color:var(--sun)}
+  .dir{display:flex;gap:7px;margin:8px 0 14px}
+  .dir .chip.active{background:var(--foam);border-color:var(--foam)}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 20px;box-shadow:0 8px 24px rgba(10,60,80,.06)}
+
+  /* flashcard */
+  .fc-q{font-size:30px;font-weight:800;text-align:center;line-height:1.15;color:var(--ink);min-height:74px;display:flex;align-items:center;justify-content:center}
+  .fc-a{font-size:30px;font-weight:800;text-align:center;color:var(--sea);min-height:42px;margin-top:4px}
+  .fc-side{text-align:center;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--dim);margin-bottom:4px}
+  .row{display:flex;gap:10px;margin-top:20px}
+  .btn{flex:1;border:1px solid var(--line);border-radius:13px;padding:15px;font-size:15px;font-weight:800;cursor:pointer;transition:.12s;background:#fff;color:var(--ink)}
+  .btn:active{transform:scale(.97)}
+  .btn.primary{background:var(--sea);color:#fff;border-color:var(--sea)}
+  .fc-hint{text-align:center;color:var(--dim);font-size:12px;margin-top:14px}
+
+  /* quiz */
+  .q-prompt{text-align:center;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+  .q-big{text-align:center;font-size:30px;font-weight:800;color:var(--ink);line-height:1.15;margin-bottom:4px;min-height:40px}
+  .q-sub{text-align:center;color:var(--dim);font-size:13px;min-height:18px;margin-bottom:20px}
+  .opts{display:grid;grid-template-columns:1fr;gap:10px}
+  .opt{background:var(--sand2);border:1px solid var(--line);color:var(--ink);padding:15px 14px;border-radius:13px;font-size:16px;font-weight:700;cursor:pointer;transition:.12s;text-align:center}
+  .opt:active{transform:scale(.98)}
+  .opt.good{background:var(--foam);color:#053; border-color:var(--foam)}
+  .opt.bad{background:var(--coral);color:#fff;border-color:var(--coral)}
+  .streak{display:flex;justify-content:center;gap:5px;margin-top:18px;height:8px}
+  .pip{width:24px;height:6px;border-radius:3px;background:var(--line)}
+  .pip.on{background:var(--sun)}
+
+  /* type mode */
+  .ti{width:100%;padding:15px;border-radius:13px;border:1px solid var(--line);font-size:18px;font-weight:700;text-align:center;background:var(--sand2);color:var(--ink);margin-top:6px}
+  .ti:focus{outline:none;border-color:var(--sea)}
+  .feedback{text-align:center;font-size:14px;font-weight:700;min-height:22px;margin-top:14px}
+  .feedback.ok{color:var(--sea)}
+  .feedback.no{color:var(--coral)}
+
+  footer{text-align:center;color:var(--dim);font-size:11px;margin-top:22px;line-height:1.6}
+
+  /* test */
+  .test-lead{text-align:center;color:var(--ink);font-size:14px;line-height:1.5;margin:8px 0 14px}
+  .test-prog{text-align:center;color:var(--dim);font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:8px}
+  .test-bar{height:8px;background:var(--sand2);border-radius:99px;overflow:hidden;margin-bottom:18px}
+  .test-bar-fill{height:100%;width:0;background:var(--sun);transition:width .3s}
+  .grade{font-size:88px;font-weight:800;text-align:center;line-height:1;letter-spacing:-2px}
+  .grade.pass{color:var(--sea)}
+  .grade.fail{color:var(--coral)}
+  .grade-sub{text-align:center;color:var(--dim);font-size:14px;font-weight:700;margin-top:6px;margin-bottom:18px}
+  .wrongbox{background:var(--sand2);border:1px solid var(--line);border-radius:14px;padding:4px 0;margin-bottom:18px;max-height:280px;overflow:auto}
+  .wrongrow{display:flex;justify-content:space-between;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);font-size:14px}
+  .wrongrow:last-child{border-bottom:none}
+  .wrongrow .ask{color:var(--dim)}
+  .wrongrow .got{color:var(--coral);text-decoration:line-through}
+  .wrongrow .right{color:var(--sea);font-weight:700}
+  .allgood{text-align:center;padding:18px;color:var(--sea);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="title">
+      <div class="es">Vocabulario</div>
+      <div class="nl">Capítulo 6 · En verano en Cádiz</div>
+    </div>
+    <div class="score">
+      <div class="n" id="score">0</div>
+      <div class="l">punten · reeks <span id="best">0</span></div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" data-mode="learn">Flashcards</div>
+    <div class="tab" data-mode="quiz">Quiz</div>
+    <div class="tab" data-mode="type">Schrijven</div>
+    <div class="tab" data-mode="test">Toets</div>
+  </div>
+
+  <div class="filters" id="cats"></div>
+  <div class="dir" id="dir"></div>
+
+  <!-- LEARN -->
+  <div class="card" id="learnCard">
+    <div class="fc-side" id="fcSide">Nederlands</div>
+    <div class="fc-q" id="fcQ">—</div>
+    <div class="fc-a" id="fcA">&nbsp;</div>
+    <div class="row">
+      <button class="btn primary" id="fcReveal">Toon</button>
+      <button class="btn" id="fcNext">Volgende ▸</button>
+    </div>
+    <div class="fc-hint" id="fcCount"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="card" id="quizCard" style="display:none">
+    <div class="q-prompt" id="qPrompt">Kies de vertaling</div>
+    <div class="q-big" id="qBig">—</div>
+    <div class="q-sub" id="qSub">&nbsp;</div>
+    <div class="opts" id="qOpts"></div>
+    <div class="streak" id="qStreak"></div>
+  </div>
+
+  <!-- TYPE -->
+  <div class="card" id="typeCard" style="display:none">
+    <div class="q-prompt" id="tPrompt">Schrijf het Spaanse woord</div>
+    <div class="q-big" id="tBig">—</div>
+    <input class="ti" id="tInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="typ hier...">
+    <div class="feedback" id="tFeed">&nbsp;</div>
+    <div class="row">
+      <button class="btn primary" id="tCheck">Controleer</button>
+      <button class="btn" id="tSkip">Sla over</button>
+    </div>
+    <div class="streak" id="tStreak"></div>
+  </div>
+
+  <!-- TEST -->
+  <div class="card" id="testCard" style="display:none">
+    <!-- intro -->
+    <div id="testIntro">
+      <div class="q-prompt">Proefwerk-stand</div>
+      <div class="test-lead" id="testLead"></div>
+      <div class="filters" id="testLen"></div>
+      <div class="row">
+        <button class="btn primary" id="testStart">Start toets</button>
+      </div>
+      <div class="fc-hint">Geen hints, geen meerkeuze. Net als op het echte proefwerk. Aan het eind krijg je een cijfer.</div>
+    </div>
+    <!-- running -->
+    <div id="testRun" style="display:none">
+      <div class="test-prog" id="testProg">Vraag 1 / 10</div>
+      <div class="test-bar"><div class="test-bar-fill" id="testBar"></div></div>
+      <div class="q-prompt" id="testPrompt">Schrijf het Spaanse woord</div>
+      <div class="q-big" id="testBig">—</div>
+      <input class="ti" id="testInput" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="typ hier...">
+      <div class="row">
+        <button class="btn primary" id="testNext">Volgende ▸</button>
+      </div>
+      <div class="fc-hint">Enter = volgende. Leeg laten mag, telt als fout.</div>
+    </div>
+    <!-- result -->
+    <div id="testResult" style="display:none">
+      <div class="grade" id="grade">—</div>
+      <div class="grade-sub" id="gradeSub"></div>
+      <div class="wrongbox" id="wrongbox"></div>
+      <div class="row">
+        <button class="btn primary" id="testAgain">Nieuwe toets</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Woorden uit hoofdstuk 6 (6.1 t/m 6.4).<br>
+    © Noordhoff Uitgevers · oefenversie
+  </footer>
+</div>
+
+<script>
+// woorden: [nl, es, categorie]
+const WORDS = [
+  // seizoenen & tijd
+  ["de zomer","el verano","tijd"],
+  ["de herfst","el otoño","tijd"],
+  ["de winter","el invierno","tijd"],
+  ["de lente","la primavera","tijd"],
+  ["de avond / de nacht","la noche","tijd"],
+  ["de middag / de avond","la tarde","tijd"],
+  ["de ochtend / de morgen","la mañana","tijd"],
+  ["de week","la semana","tijd"],
+  ["vanmiddag / vanavond","esta tarde","tijd"],
+  ["vanmorgen","esta mañana","tijd"],
+  ["vannavond / vannacht","esta noche","tijd"],
+
+  // strand & vakantie
+  ["zwemmen","nadar","strand"],
+  ["de zee","el mar","strand"],
+  ["de bal","el balón","strand"],
+  ["de slippers","las chanclas","strand"],
+  ["de handdoek","la toalla","strand"],
+  ["het bos","el bosque","strand"],
+  ["het strand","la playa","strand"],
+  ["de bergen","las montañas","strand"],
+  ["de zwembroek","el bañador","strand"],
+  ["de bikini","el bikini","strand"],
+  ["surfplank","la tabla de surf","strand"],
+  ["beachvolleybal","el vóley-playa","strand"],
+  ["het avontuur","la aventura","strand"],
+  ["de jongeren","los jóvenes","strand"],
+
+  // werkwoorden & activiteiten
+  ["surfen","surfear","doen"],
+  ["tennissen","jugar al tenis","doen"],
+  ["zonnebaden","tomar el sol","doen"],
+  ["dansen","bailar","doen"],
+  ["meedoen met","participar en","doen"],
+  ["invullen","rellenar","doen"],
+  ["meenemen / dragen","llevar","doen"],
+  ["meenemen / meebrengen","traer","doen"],
+  ["afspreken","quedar","doen"],
+  ["e-mailen","escribir un email","doen"],
+  ["reserveren / boeken","reservar","doen"],
+  ["beginnen","empezar","doen"],
+  ["vergeten","olvidar","doen"],
+  ["teruggaan","volver","doen"],
+  ["bang zijn","tener miedo","doen"],
+  ["genieten","disfrutar","doen"],
+  ["wij verzamelen","nos reunimos","doen"],
+
+  // spullen
+  ["het kantoor","el despacho","spullen"],
+  ["de koffer","la maleta","spullen"],
+  ["de zaklamp","la linterna","spullen"],
+  ["de warme trui","el jersey abrigado","spullen"],
+  ["de pen","el bolígrafo","spullen"],
+  ["het papier","el papel","spullen"],
+  ["de mobiele telefoon","el móvil","spullen"],
+  ["de kaart (geografisch)","el mapa","spullen"],
+  ["de stevige schoenen","el calzado deportivo","spullen"],
+  ["het regenpak","el impermeable","spullen"],
+  ["het formulier","el formulario","spullen"],
+  ["het ingredient","el ingrediente","spullen"],
+
+  // plek & verblijf
+  ["bij de ingang","en la entrada","plek"],
+  ["de cursus","el curso","plek"],
+  ["de receptie","la recepción","plek"],
+  ["de route / de afstand","el recorrido","plek"],
+  ["de mountainbikeroute","la ruta en bicicleta de montaña","plek"],
+  ["het verblijf","el alojamiento","plek"],
+  ["het huisje","la casita","plek"],
+  ["de standplaats (tent)","la parcela","plek"],
+  ["het activiteitenprogramma","el programa de actividades","plek"],
+  ["de instructie","la instrucción","plek"],
+  ["de wandeling / de weg","el camino","plek"],
+
+  // weer
+  ["het regent","llueve","weer"],
+  ["het is koud","hace frío","weer"],
+  ["het is warm","hace calor","weer"],
+  ["het is mooi weer","hace buen tiempo","weer"],
+  ["de zon schijnt","hace sol","weer"],
+  ["de wind","el viento","weer"],
+  ["de golf","la ola","weer"],
+
+  // bijvoeglijk & beschrijven
+  ["leuk","divertido","beschrijven"],
+  ["hoog","alto","beschrijven"],
+  ["lelijk","feo","beschrijven"],
+  ["het niveau","el nivel","beschrijven"],
+  ["de leeftijd","la edad","beschrijven"],
+  ["de beste","el mejor","beschrijven"],
+  ["de leraar/lerares","el instructor","beschrijven"],
+  ["iedereen","cada uno","beschrijven"],
+  ["samen","juntos","beschrijven"],
+  ["koud","frío","beschrijven"],
+  ["fantastisch/super","estupendo","beschrijven"],
+  ["het is jammer","es una lástima","beschrijven"],
+  ["onvergetelijk","inolvidable","beschrijven"],
+  ["te veel","demasiado","beschrijven"],
+  ["kijk","mira","beschrijven"],
+  ["soort","tipo","beschrijven"],
+  ["het is verboden","está prohibido","beschrijven"],
+  ["je / jullie moet(en)","hay que","beschrijven"],
+  ["het wordt donker","se hace de noche","beschrijven"],
+  ["het profiel","el perfil","beschrijven"],
+  ["als je durft","si te atreves","beschrijven"],
+  ["het hart","el corazón","beschrijven"],
+
+  // getallen
+  ["0","cero","getallen"],
+  ["1","uno / un","getallen"],
+  ["2","dos","getallen"],
+  ["3","tres","getallen"],
+  ["4","cuatro","getallen"],
+  ["5","cinco","getallen"],
+  ["6","seis","getallen"],
+  ["7","siete","getallen"],
+  ["8","ocho","getallen"],
+  ["9","nueve","getallen"],
+  ["10","diez","getallen"],
+  ["11","once","getallen"],
+  ["12","doce","getallen"],
+  ["13","trece","getallen"],
+  ["14","catorce","getallen"],
+  ["15","quince","getallen"],
+  ["16","dieciséis","getallen"],
+  ["17","diecisiete","getallen"],
+  ["18","dieciocho","getallen"],
+  ["19","diecinueve","getallen"],
+  ["20","veinte","getallen"],
+  ["21","veintiuno / veintiún","getallen"],
+  ["30","treinta","getallen"],
+  ["31","treinta y uno / treinta y un","getallen"],
+  ["40","cuarenta","getallen"],
+  ["50","cincuenta","getallen"],
+  ["60","sesenta","getallen"],
+  ["70","setenta","getallen"],
+  ["80","ochenta","getallen"],
+  ["90","noventa","getallen"],
+  ["100","cien","getallen"],
+  ["101","ciento uno","getallen"],
+  ["110","ciento diez","getallen"],
+  ["120","ciento veinte","getallen"],
+  ["200","doscientos","getallen"],
+  ["300","trescientos","getallen"],
+  ["400","cuatrocientos","getallen"],
+  ["500","quinientos","getallen"],
+  ["600","seiscientos","getallen"],
+  ["700","setecientos","getallen"],
+  ["800","ochocientos","getallen"],
+  ["900","novecientos","getallen"],
+  ["1000","mil","getallen"]
+];
+
+const CATS = ["alles","getallen","tijd","strand","doen","spullen","plek","weer","beschrijven"];
+
+let mode="learn";
+let cat="alles";
+let dir="nl2es"; // vraag NL -> antwoord ES
+let pool=[];
+let score=0,streak=0,best=0;
+let cur=null, fcShown=false;
+
+const $=id=>document.getElementById(id);
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+
+function buildPool(){
+  pool = cat==="alles" ? [...WORDS] : WORDS.filter(w=>w[2]===cat);
+}
+function setScore(){$("score").textContent=score;$("best").textContent=best}
+
+// strip accenten/casing voor het schrijfspel zodat het niet te streng is
+function norm(s){
+  return s.toLowerCase().trim()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/\s+/g," ");
+}
+
+// filters
+function buildCats(){
+  const el=$("cats");el.innerHTML="";
+  CATS.forEach(c=>{
+    const d=document.createElement("div");
+    d.className="chip"+(c===cat?" active":"");
+    d.textContent=c;
+    d.onclick=()=>{cat=c;buildCats();buildPool();refresh()};
+    el.appendChild(d);
+  });
+}
+function buildDir(){
+  const el=$("dir");el.innerHTML="";
+  [["nl2es","NL ▸ ES"],["es2nl","ES ▸ NL"]].forEach(([k,l])=>{
+    const d=document.createElement("div");
+    d.className="chip"+(k===dir?" active":"");
+    d.textContent=l;
+    d.onclick=()=>{dir=k;buildDir();refresh()};
+    el.appendChild(d);
+  });
+}
+
+// ---- LEARN ----
+function newFlash(){
+  fcShown=false;
+  cur=rnd(pool);
+  const [nl,es]=cur;
+  if(dir==="nl2es"){$("fcSide").textContent="Nederlands";$("fcQ").textContent=nl;}
+  else{$("fcSide").textContent="Español";$("fcQ").textContent=es;}
+  $("fcA").innerHTML="&nbsp;";
+  $("fcReveal").textContent="Toon";
+  $("fcCount").textContent=pool.length+" woorden in deze set";
+}
+function revealFlash(){
+  const [nl,es]=cur;
+  $("fcA").textContent = dir==="nl2es"? es : nl;
+  fcShown=true;$("fcReveal").textContent="Volgende ▸";
+}
+$("fcReveal").onclick=()=>fcShown?newFlash():revealFlash();
+$("fcNext").onclick=newFlash;
+
+// ---- QUIZ ----
+function newQuiz(){
+  cur=rnd(pool);
+  const [nl,es]=cur;
+  const ask = dir==="nl2es"? nl : es;
+  const ans = dir==="nl2es"? es : nl;
+  $("qPrompt").textContent = dir==="nl2es"? "Wat is dit in het Spaans?" : "Wat betekent dit?";
+  $("qBig").textContent=ask;
+  $("qSub").innerHTML="&nbsp;";
+  const optsEl=$("qOpts");optsEl.innerHTML="";
+  let wrongs=[];const others=pool.filter(w=>w!==cur);
+  while(wrongs.length<3 && others.length){
+    const w=rnd(others);
+    const wv=dir==="nl2es"?w[1]:w[0];
+    if(!wrongs.includes(wv)&&wv!==ans)wrongs.push(wv);
+  }
+  let choices=[ans,...wrongs].sort(()=>Math.random()-0.5);
+  choices.forEach(c=>{
+    const b=document.createElement("div");b.className="opt";b.textContent=c;
+    b.onclick=()=>{
+      [...optsEl.children].forEach(x=>x.style.pointerEvents="none");
+      if(c===ans){b.classList.add("good");score+=10;streak++;best=Math.max(best,streak);$("qSub").textContent="¡Correcto!";}
+      else{b.classList.add("bad");streak=0;[...optsEl.children].forEach(x=>{if(x.textContent===ans)x.classList.add("good")});$("qSub").textContent="Juist: "+ans;}
+      setScore();drawStreak("qStreak");
+      setTimeout(newQuiz,1000);
+    };
+    optsEl.appendChild(b);
+  });
+  drawStreak("qStreak");
+}
+
+// ---- TYPE ----
+function newType(){
+  cur=rnd(pool);
+  const [nl,es]=cur;
+  const ask = dir==="nl2es"? nl : es;
+  $("tPrompt").textContent = dir==="nl2es"? "Schrijf het Spaanse woord" : "Schrijf het Nederlandse woord";
+  $("tBig").textContent=ask;
+  $("tInput").value="";$("tFeed").innerHTML="&nbsp;";$("tFeed").className="feedback";
+  $("tCheck").textContent="Controleer";
+  $("tInput").focus();
+}
+function checkType(){
+  if($("tCheck").textContent==="Volgende ▸"){newType();return;}
+  const [nl,es]=cur;
+  const correct = dir==="nl2es"? es : nl;
+  const val=$("tInput").value;
+  // accepteer ook alternatieven gescheiden door /
+  const accepted = correct.split("/").map(s=>norm(s));
+  if(accepted.includes(norm(val))){
+    $("tFeed").textContent="¡Correcto! ✓";$("tFeed").className="feedback ok";
+    score+=15;streak++;best=Math.max(best,streak);
+  }else{
+    $("tFeed").textContent="Bijna. Juist: "+correct;$("tFeed").className="feedback no";
+    streak=0;
+  }
+  setScore();drawStreak("tStreak");
+  $("tCheck").textContent="Volgende ▸";
+}
+$("tCheck").onclick=checkType;
+$("tSkip").onclick=newType;
+$("tInput").addEventListener("keydown",e=>{if(e.key==="Enter")checkType()});
+
+function drawStreak(id){
+  const el=$(id);el.innerHTML="";
+  for(let i=0;i<5;i++){const p=document.createElement("div");p.className="pip"+(i<streak%6&&streak>0?" on":"");el.appendChild(p)}
+}
+
+// ---- TEST (proefwerk-stand) ----
+let testQ=[], testI=0, testLen=15, testWrong=[];
+
+function showTestIntro(){
+  $("testIntro").style.display="block";
+  $("testRun").style.display="none";
+  $("testResult").style.display="none";
+  buildPool();
+  const max=pool.length;
+  testLen=Math.min(testLen,max);
+  $("testLead").innerHTML="Set: <b>"+cat+"</b> ("+max+" woorden) · richting <b>"+(dir==="nl2es"?"NL ▸ ES":"ES ▸ NL")+"</b>.<br>Kies hoeveel vragen:";
+  const el=$("testLen");el.innerHTML="";
+  [10,15,20,max].forEach((n,idx)=>{
+    if(idx===3 && [10,15,20].includes(max))return; // geen dubbele
+    const lab = (idx===3)? "alles ("+max+")" : String(n);
+    const v=Math.min(n,max);
+    const d=document.createElement("div");
+    d.className="chip"+(v===testLen?" active":"");
+    d.textContent=lab;
+    d.onclick=()=>{testLen=v;showTestIntro()};
+    el.appendChild(d);
+  });
+}
+
+function startTest(){
+  buildPool();
+  let shuffled=[...pool].sort(()=>Math.random()-0.5);
+  testQ=shuffled.slice(0,Math.min(testLen,shuffled.length));
+  testI=0;testWrong=[];
+  $("testIntro").style.display="none";
+  $("testResult").style.display="none";
+  $("testRun").style.display="block";
+  renderTestQ();
+}
+function renderTestQ(){
+  const w=testQ[testI];
+  const ask=dir==="nl2es"?w[0]:w[1];
+  $("testPrompt").textContent = dir==="nl2es"?"Schrijf het Spaanse woord":"Schrijf het Nederlandse woord";
+  $("testBig").textContent=ask;
+  $("testProg").textContent="Vraag "+(testI+1)+" / "+testQ.length;
+  $("testBar").style.width=((testI)/testQ.length*100)+"%";
+  $("testInput").value="";
+  $("testInput").focus();
+}
+function submitTestQ(){
+  const w=testQ[testI];
+  const correct=dir==="nl2es"?w[1]:w[0];
+  const val=$("testInput").value;
+  const accepted=correct.split("/").map(s=>norm(s));
+  const ok=accepted.includes(norm(val))&&norm(val)!=="";
+  if(!ok){
+    testWrong.push({ask:dir==="nl2es"?w[0]:w[1], got:val.trim()||"(leeg)", right:correct});
+  }
+  testI++;
+  if(testI>=testQ.length){showTestResult();}
+  else{renderTestQ();}
+}
+function showTestResult(){
+  $("testRun").style.display="none";
+  $("testResult").style.display="block";
+  const total=testQ.length;
+  const good=total-testWrong.length;
+  // Nederlands cijfer: 1 + 9 * (goed/totaal)
+  const grade=(1+9*(good/total));
+  const g=Math.round(grade*10)/10;
+  const gEl=$("grade");
+  gEl.textContent=g.toFixed(1).replace(".",",");
+  gEl.className="grade "+(g>=5.5?"pass":"fail");
+  $("gradeSub").textContent=good+" van "+total+" goed"+(g>=5.5?" · gehaald!":" · nog even oefenen");
+  const box=$("wrongbox");box.innerHTML="";
+  if(testWrong.length===0){
+    box.innerHTML='<div class="allgood">Alles goed. Helemaal niks fout. 🔥</div>';
+  }else{
+    testWrong.forEach(x=>{
+      const r=document.createElement("div");r.className="wrongrow";
+      r.innerHTML='<span class="ask">'+x.ask+'</span><span><span class="got">'+x.got+'</span> &nbsp;<span class="right">'+x.right+'</span></span>';
+      box.appendChild(r);
+    });
+  }
+}
+$("testStart").onclick=startTest;
+$("testAgain").onclick=showTestIntro;
+$("testNext").onclick=submitTestQ;
+$("testInput").addEventListener("keydown",e=>{if(e.key==="Enter")submitTestQ()});
+
+function refresh(){
+  if(mode==="learn")newFlash();
+  if(mode==="quiz")newQuiz();
+  if(mode==="type")newType();
+  if(mode==="test")showTestIntro();
+}
+document.querySelectorAll(".tab").forEach(t=>{
+  t.onclick=()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");mode=t.dataset.mode;
+    $("learnCard").style.display=mode==="learn"?"block":"none";
+    $("quizCard").style.display=mode==="quiz"?"block":"none";
+    $("typeCard").style.display=mode==="type"?"block":"none";
+    $("testCard").style.display=mode==="test"?"block":"none";
+    // tijdens toets de richtingknoppen laten staan maar categorie ook; ze gelden voor de volgende toets
+    refresh();
+  };
+});
+
+buildCats();buildDir();buildPool();refresh();setScore();
+</script>
+</body>
+</html>
