@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRANDSTOFF. — Marketing &amp; strategie voor B2B-organisaties | Zeeland</title>
+<meta name="description" content="Consultancy met een persoonlijke en no-nonsense aanpak. Strategie, marketing, communicatie en interim management. We fuel up brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ---------- tokens — brandstoff brand colours, anno 2026 ---------- */
+  :root{
+    --ink:#0a0a0a;            /* near-black brand base   */
+    --ink-soft:#161616;
+    --ink-card:#1b1b1d;
+    --lime:#edf000;           /* electric signature lime */
+    --lime-soft:#f4f56b;
+    --gold:#fad139;           /* secondary fuel gold     */
+    --gold-deep:#c8a72e;
+    --paper:#fbfbf6;          /* warm off-white          */
+    --paper-2:#f2f2ea;
+    --line:rgba(10,10,10,.10);
+    --line-d:rgba(255,255,255,.12);
+    --muted:#5b5b54;
+    --muted-d:rgba(255,255,255,.62);
+    --font-d:'Poppins',system-ui,sans-serif;
+    --font-b:'Open Sans',system-ui,sans-serif;
+    --r-sm:12px;--r-md:18px;--r-lg:26px;--r-xl:34px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+    --shadow:0 24px 60px -24px rgba(10,10,10,.45);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  body{font-family:var(--font-b);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--lime);color:var(--ink)}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+  h1,h2,h3,h4{font-family:var(--font-d);letter-spacing:-.02em;margin:0}
+  .dot{color:var(--lime)}
+
+  /* ---------- buttons ---------- */
+  .btn{font-family:var(--font-d);font-weight:600;font-size:15px;border:none;border-radius:999px;
+       padding:15px 28px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;
+       transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .25s,color .25s;white-space:nowrap}
+  .btn svg{width:18px;height:18px}
+  .btn-lime{background:var(--lime);color:var(--ink);box-shadow:0 10px 30px -8px rgba(237,240,0,.7)}
+  .btn-lime:hover{transform:translateY(-3px);box-shadow:0 18px 42px -10px rgba(237,240,0,.85)}
+  .btn-gold{background:var(--gold);color:var(--ink)}
+  .btn-gold:hover{background:var(--gold-deep);transform:translateY(-3px)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid var(--line-d)}
+  .btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+
+  /* ---------- header ---------- */
+  header.site{position:sticky;top:0;z-index:60;transition:all .4s var(--ease)}
+  header.site.scrolled{background:rgba(10,10,10,.72);backdrop-filter:blur(16px) saturate(150%);border-bottom:1px solid var(--line-d)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{font-family:var(--font-d);font-weight:800;font-size:23px;letter-spacing:-.03em;color:#fff;display:flex;align-items:center;gap:2px}
+  header.site:not(.scrolled) .brand{color:var(--ink)}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-family:var(--font-d);font-weight:500;font-size:15px;color:var(--muted);transition:color .2s}
+  header.site.scrolled .nav-links a{color:var(--muted-d)}
+  .nav-links a:hover{color:var(--ink)}
+  header.site.scrolled .nav-links a:hover{color:var(--lime)}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;color:inherit;padding:6px}
+  .menu-btn svg{width:28px;height:28px}
+  .mobile-menu{display:none;flex-direction:column;background:rgba(10,10,10,.96);backdrop-filter:blur(14px);
+               padding:14px 26px 26px;border-bottom:1px solid var(--line-d)}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:var(--font-d);font-weight:500;font-size:17px;color:#fff;padding:13px 0;border-bottom:1px solid var(--line-d)}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;background:var(--ink);color:#fff;padding:72px 0 96px;overflow:hidden}
+  .hero .aurora{position:absolute;inset:0;pointer-events:none;opacity:.9;
+    background:
+      radial-gradient(48% 60% at 82% 8%, rgba(237,240,0,.20), transparent 60%),
+      radial-gradient(40% 55% at 8% 100%, rgba(250,209,57,.16), transparent 62%)}
+  .hero .grid-lines{position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(var(--line-d) 1px,transparent 1px),linear-gradient(90deg,var(--line-d) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent)}
+  .hero .wrap{position:relative;z-index:2}
+  .pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-d);font-weight:600;font-size:13px;
+        letter-spacing:.02em;background:rgba(255,255,255,.06);border:1px solid var(--line-d);
+        padding:8px 16px;border-radius:999px;color:#fff}
+  .pill .live{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(237,240,0,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(237,240,0,.55)}70%{box-shadow:0 0 0 12px rgba(237,240,0,0)}100%{box-shadow:0 0 0 0 rgba(237,240,0,0)}}
+  .hero h1{font-weight:800;font-size:clamp(44px,7.2vw,88px);line-height:.98;margin:26px 0 0}
+  .hero h1 .glow{color:var(--lime);text-shadow:0 0 44px rgba(237,240,0,.45)}
+  .hero .lead{font-size:clamp(17px,2.1vw,21px);line-height:1.6;color:var(--muted-d);max-width:600px;margin:26px 0 0}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:46px;padding-top:30px;border-top:1px solid var(--line-d)}
+  .hero-tags span{font-family:var(--font-d);font-weight:600;font-size:14px;color:#fff;display:inline-flex;align-items:center;gap:8px}
+  .hero-tags span::before{content:"/";color:var(--lime);font-weight:800}
+
+  /* big wordmark strip */
+  .strip{background:var(--lime);color:var(--ink);overflow:hidden;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .marquee{display:flex;gap:0;white-space:nowrap;animation:scroll 26s linear infinite}
+  .marquee b{font-family:var(--font-d);font-weight:800;font-size:34px;letter-spacing:-.01em;padding:18px 30px;display:inline-flex;align-items:center}
+  .marquee b::after{content:"●";font-size:13px;margin-left:30px;color:var(--ink)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- generic section ---------- */
+  section{padding:104px 0}
+  .eyebrow{font-family:var(--font-d);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:12px;color:var(--gold-deep)}
+  .sec-head{max-width:680px}
+  .sec-head h2{font-weight:800;font-size:clamp(32px,4.6vw,52px);line-height:1.04;margin:14px 0 0}
+  .sec-head p{font-size:18px;line-height:1.65;color:var(--muted);margin:18px 0 0}
+
+  /* ---------- founder / mission ---------- */
+  .founder{background:var(--paper-2)}
+  .founder-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:60px;align-items:center}
+  .portrait{position:relative;border-radius:var(--r-xl);background:var(--ink);min-height:460px;overflow:hidden;box-shadow:var(--shadow);
+            display:flex;align-items:flex-end;padding:34px}
+  .portrait .glow2{position:absolute;inset:0;background:radial-gradient(70% 60% at 30% 0%,rgba(237,240,0,.22),transparent 60%),radial-gradient(60% 50% at 100% 100%,rgba(250,209,57,.18),transparent 60%)}
+  .portrait .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:900;
+                  font-size:200px;color:rgba(255,255,255,.05);letter-spacing:-.04em}
+  .portrait .id{position:relative;z-index:2;background:rgba(255,255,255,.07);border:1px solid var(--line-d);backdrop-filter:blur(8px);
+                border-radius:var(--r-md);padding:18px 22px;color:#fff;width:100%}
+  .portrait .id .nm{font-family:var(--font-d);font-weight:700;font-size:22px}
+  .portrait .id .rl{font-size:14px;color:var(--lime);font-weight:600;margin-top:3px}
+  .quote{font-family:var(--font-d);font-weight:600;font-size:clamp(24px,3.4vw,36px);line-height:1.28;letter-spacing:-.02em}
+  .quote em{font-style:normal;background:linear-gradient(transparent 62%,var(--lime) 62%);padding:0 2px}
+  .founder p.body{font-size:17px;line-height:1.7;color:var(--muted);margin:22px 0 0;max-width:560px}
+  .creds{list-style:none;padding:0;margin:30px 0 0;display:grid;gap:13px}
+  .creds li{display:flex;gap:13px;align-items:flex-start;font-size:15.5px;line-height:1.5;font-weight:500}
+  .creds li svg{width:22px;height:22px;color:var(--ink);background:var(--lime);border-radius:50%;padding:4px;flex-shrink:0}
+
+  /* ---------- services ---------- */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+  .scard{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 30px;
+         transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s;position:relative;overflow:hidden}
+  .scard::before{content:"";position:absolute;left:0;top:0;height:5px;width:100%;background:var(--lime);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .scard:hover{transform:translateY(-8px);box-shadow:var(--shadow);border-color:transparent}
+  .scard:hover::before{transform:scaleX(1)}
+  .scard .nm{font-family:var(--font-d);font-weight:800;font-size:15px;color:var(--gold-deep);letter-spacing:.04em}
+  .scard h3{font-weight:700;font-size:24px;margin:16px 0 0;line-height:1.15}
+  .scard p{font-size:15px;line-height:1.62;color:var(--muted);margin:14px 0 0}
+  .scard ul{list-style:none;padding:0;margin:22px 0 0;border-top:1px dashed var(--line);padding-top:20px}
+  .scard li{font-family:var(--font-d);font-weight:500;font-size:14.5px;color:var(--ink);display:flex;gap:10px;align-items:center;margin-bottom:12px}
+  .scard li::before{content:"/";color:var(--lime);font-weight:800;font-size:16px}
+  .scard li:last-child{margin-bottom:0}
+
+  /* ---------- benefits ---------- */
+  .benefits{background:var(--ink);color:#fff}
+  .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+  .ben{background:var(--ink-card);border:1px solid var(--line-d);border-radius:var(--r-md);padding:28px;transition:transform .35s var(--ease),background .3s}
+  .ben:hover{transform:translateY(-6px);background:#222226}
+  .ben .n{font-family:var(--font-d);font-weight:800;font-size:14px;color:var(--lime)}
+  .ben p{font-size:16px;line-height:1.55;margin:14px 0 0;color:#fff;font-family:var(--font-d);font-weight:500}
+  .benefits .sec-head h2,.benefits .quote{color:#fff}
+  .benefits .sec-head p{color:var(--muted-d)}
+
+  /* ---------- clients ---------- */
+  .clients{text-align:center}
+  .client-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:52px}
+  .logo{aspect-ratio:3/2;border:1px solid var(--line);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;
+        font-family:var(--font-d);font-weight:700;font-size:17px;color:var(--muted);background:#fff;transition:.3s var(--ease)}
+  .logo:hover{color:var(--ink);border-color:var(--ink);transform:translateY(-4px);box-shadow:0 14px 30px -16px rgba(10,10,10,.4)}
+
+  /* ---------- contact ---------- */
+  .contact-card{background:var(--ink);color:#fff;border-radius:var(--r-xl);padding:0;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;box-shadow:var(--shadow);position:relative}
+  .contact-l{padding:60px 56px;position:relative}
+  .contact-l .aurora{position:absolute;inset:0;opacity:.7;background:radial-gradient(60% 60% at 90% 0%,rgba(237,240,0,.18),transparent 60%)}
+  .contact-l .inner{position:relative;z-index:2}
+  .contact-l h2{font-weight:800;font-size:clamp(30px,4vw,46px);line-height:1.05}
+  .contact-l h2 .glow{color:var(--lime)}
+  .contact-l p{font-size:17px;line-height:1.65;color:var(--muted-d);margin:20px 0 0;max-width:440px}
+  .contact-r{background:var(--lime);color:var(--ink);padding:56px 52px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+  .crow{display:flex;gap:15px;align-items:flex-start}
+  .crow svg{width:24px;height:24px;flex-shrink:0;margin-top:2px}
+  .crow .lab{font-family:var(--font-d);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.7}
+  .crow .val{font-family:var(--font-d);font-weight:600;font-size:18px;margin-top:2px}
+  .crow .val a:hover{text-decoration:underline}
+  .socials{display:flex;gap:12px;margin-top:6px}
+  .socials a{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--lime);display:flex;align-items:center;justify-content:center;transition:.3s var(--ease)}
+  .socials a:hover{transform:translateY(-4px) rotate(-6deg)}
+  .socials a svg{width:20px;height:20px}
+
+  /* ---------- footer ---------- */
+  footer.site{background:var(--ink);color:#fff;padding:70px 0 34px;border-top:1px solid var(--line-d)}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid var(--line-d)}
+  .foot-brand{font-family:var(--font-d);font-weight:800;font-size:30px;letter-spacing:-.03em}
+  .foot-brand p{font-family:var(--font-b);font-weight:400;font-size:15px;color:var(--muted-d);margin:12px 0 0;max-width:320px;line-height:1.6}
+  .foot-cols{display:flex;gap:64px;flex-wrap:wrap}
+  .foot-col h5{font-family:var(--font-d);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--lime);margin:0 0 16px}
+  .foot-col a{display:block;font-size:14.5px;color:var(--muted-d);margin-bottom:11px;transition:color .2s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:13px;color:var(--muted-d);flex-wrap:wrap;gap:10px}
+
+  @media(max-width:980px){
+    .founder-grid{grid-template-columns:1fr;gap:40px}
+    .cards3{grid-template-columns:1fr}
+    .ben-grid{grid-template-columns:1fr}
+    .client-grid{grid-template-columns:repeat(3,1fr)}
+    .contact-card{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .nav .btn{display:none}
+    .menu-btn{display:block}
+    section{padding:78px 0}
+  }
+  @media(max-width:560px){
+    .client-grid{grid-template-columns:repeat(2,1fr)}
+    .contact-l,.contact-r{padding:40px 28px}
+  }
+</style>
+</head>
+<body>
+
+<header class="site" id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand">BRANDSTOFF<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#missie">Missie</a>
+      <a href="#niek">Over Niek</a>
+      <a href="#diensten">Diensten</a>
+      <a href="#merken">Merken</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-lime">Plan een gesprek
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mob">
+    <a href="#missie">Missie</a>
+    <a href="#niek">Over Niek</a>
+    <a href="#diensten">Diensten</a>
+    <a href="#merken">Merken</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<!-- ---------------- HERO ---------------- -->
+<section class="hero" id="top" style="padding-top:60px">
+  <div class="aurora"></div>
+  <div class="grid-lines"></div>
+  <div class="wrap">
+    <span class="pill"><span class="live"></span> Beschikbaar als fractional CMO &amp; CCO · 2026</span>
+    <h1>We fuel up<br><span class="glow">brands.</span></h1>
+    <p class="lead">Consultancy met een persoonlijke en no-nonsense aanpak. Van strategie en
+      positionering tot interim-management — ik help groeibedrijven en organisaties in transitie
+      om ambities om te zetten in resultaten.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-lime">Neem vrijblijvend contact op
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#diensten" class="btn btn-ghost">Bekijk de diensten</a>
+    </div>
+    <div class="hero-tags">
+      <span>Strategie &amp; organisatieadvies</span>
+      <span>Marketing &amp; communicatie</span>
+      <span>Interim advies &amp; management</span>
+      <span>Fractional CMO &amp; CCO</span>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- MARQUEE STRIP ---------------- -->
+<div class="strip" aria-hidden="true">
+  <div class="marquee">
+    <b>WE FUEL UP BRANDS</b><b>GROEIEN</b><b>ONTWIKKELEN</b><b>PROFESSIONALISEREN</b>
+    <b>WE FUEL UP BRANDS</b><b>GROEIEN</b><b>ONTWIKKELEN</b><b>PROFESSIONALISEREN</b>
+  </div>
+</div>
+
+<!-- ---------------- MISSIE / FOUNDER ---------------- -->
+<section class="founder" id="missie">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="portrait" id="niek">
+        <div class="glow2"></div>
+        <div class="mono">B.</div>
+        <div class="id">
+          <div class="nm">Niek Scheppers</div>
+          <div class="rl">Eigenaar · Consultant</div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">De missie</span>
+        <p class="quote" style="margin-top:14px">“Met de juiste <em>brandstof</em> worden ambities omgezet in resultaten.”</p>
+        <p class="body">Als fractional CMO of CCO en zelfstandig consultant ben ik beschikbaar voor
+          groeibedrijven en bedrijven in transitie. Of het nu gaat om commerciële groei, een nieuwe
+          strategie voor de komende jaren, het versterken van je positionering, een stevig marketing- &amp;
+          communicatieplan of het vervullen van een interim-managementfunctie.</p>
+        <ul class="creds">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Meer dan 15 jaar ervaring op strategisch niveau in Nederland &amp; België.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Geregistreerd Senior Marketing Professional bij NIMA.</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Eén aanspreekpunt, korte lijnen en directe communicatie.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- BENEFITS ---------------- -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Wat brengt het jou</span>
+      <h2>Een senior profiel, precies wanneer je het nodig hebt.</h2>
+      <p>Part-time inzetbaar op managementniveau — zonder de overhead van een vaste aanstelling.</p>
+    </div>
+    <div class="ben-grid">
+      <div class="ben"><div class="n">01</div><p>Een senior profiel op managementniveau, part-time inzetbaar voor jouw organisatie.</p></div>
+      <div class="ben"><div class="n">02</div><p>Een frisse en scherpe blik die helpt met bouwen en groeien.</p></div>
+      <div class="ben"><div class="n">03</div><p>Een persoonlijke, betrokken en resultaatgerichte aanpak.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- DIENSTEN ---------------- -->
+<section id="diensten">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Waar wil jij werk van maken?</span>
+      <h2>Drie richtingen, één doel:<br>jouw merk vol energie vooruit.</h2>
+    </div>
+    <div class="cards3">
+      <article class="scard">
+        <div class="nm">STRATEGIE &amp; ORGANISATIEADVIES</div>
+        <h3>Klankbord op koers</h3>
+        <p>Een extern klankbord en adviseur binnen jouw organisatie of team, voor advies en begeleiding van strategische thema’s.</p>
+        <ul>
+          <li>Koersbepaling of -wijziging</li>
+          <li>Strategieontwikkeling</li>
+          <li>Trainingen &amp; workshops</li>
+          <li>Extern adviseur &amp; klankbord</li>
+        </ul>
+      </article>
+      <article class="scard">
+        <div class="nm">MARKETING &amp; COMMUNICATIE</div>
+        <h3>Van strategie tot uitvoering</h3>
+        <p>Marketing- en communicatieadvies voor bedrijven die willen groeien en professionaliseren. Van strategie tot coördinatie en implementatie.</p>
+        <ul>
+          <li>Marketingplannen &amp; -aanpak</li>
+          <li>Merkpositionering</li>
+          <li>Strategisch communicatieadvies</li>
+          <li>Marketeer-4-a-Day (freelance)</li>
+        </ul>
+      </article>
+      <article class="scard">
+        <div class="nm">INTERIM ADVIES &amp; MANAGEMENT</div>
+        <h3>Tijdelijke versterking</h3>
+        <p>Inzetbaar als fractional CMO of CCO en voor interim-opdrachten: tijdelijke versterking of vervanging binnen je organisatie, afdeling of team.</p>
+        <ul>
+          <li>Fractional CMO &amp; CCO</li>
+          <li>Interim Marketingmanager</li>
+          <li>Interim Commercieel Manager</li>
+          <li>Interim Programmamanager</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- MERKEN ---------------- -->
+<section class="clients" id="merken" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head" style="margin:0 auto;text-align:center">
+      <span class="eyebrow">De opdrachtgevers</span>
+      <h2>Welke merken kwamen al tanken?</h2>
+      <p style="margin-left:auto;margin-right:auto">Sinds de start in 2017 stopten diverse profit- én non-profitorganisaties
+        voor een ’tankbeurt’ of ‘laadsessie’ — om vervolgens vol energie weer door te kunnen. Een greep uit de opdrachtgevers.</p>
+    </div>
+    <div class="client-grid">
+      <div class="logo">Merk 01</div><div class="logo">Merk 02</div><div class="logo">Merk 03</div>
+      <div class="logo">Merk 04</div><div class="logo">Merk 05</div><div class="logo">Merk 06</div>
+      <div class="logo">Merk 07</div><div class="logo">Merk 08</div><div class="logo">Merk 09</div>
+      <div class="logo">Merk 10</div><div class="logo">Merk 11</div><div class="logo">Merk 12</div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- CONTACT ---------------- -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="contact-l">
+        <div class="aurora"></div>
+        <div class="inner">
+          <span class="eyebrow" style="color:var(--lime)">Aan de slag</span>
+          <h2 style="margin-top:14px">Groeien. Ontwikkelen.<br><span class="glow">Professionaliseren.</span></h2>
+          <p>Heeft jouw bedrijf of organisatie plannen of ambities? Of mis je nèt dat extra
+            duwtje in de rug of klankbord binnen het directie- of managementteam? Neem vrijblijvend contact op.</p>
+          <a href="mailto:info@brandstoff.nl" class="btn btn-lime" style="margin-top:30px">Mail Niek direct
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="contact-r">
+        <div class="crow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><div class="lab">Adres</div><div class="val">Schorerweg 1<br>4515 MD IJzendijke</div></div>
+        </div>
+        <div class="crow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <div><div class="lab">Mail</div><div class="val"><a href="mailto:info@brandstoff.nl">info@brandstoff.nl</a></div></div>
+        </div>
+        <div class="crow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          <div><div class="lab">Telefoon</div><div class="val"><a href="tel:+31613164494">+31 (0)6 131 644 94</a></div></div>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.4 8.06h4.18V24H.4V8.06ZM8.06 8.06h4v2.18h.06c.56-1.06 1.93-2.18 3.97-2.18 4.25 0 5.03 2.8 5.03 6.43V24h-4.18v-7.06c0-1.68-.03-3.85-2.35-3.85-2.35 0-2.71 1.83-2.71 3.72V24H8.06V8.06Z"/></svg></a>
+          <a href="https://www.facebook.com" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg></a>
+          <a href="https://www.instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.95c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07Zm0 3.32a6.57 6.57 0 1 1 0 13.14 6.57 6.57 0 0 1 0-13.14Zm0 1.95a4.62 4.62 0 1 0 0 9.24 4.62 4.62 0 0 0 0-9.24Zm6.79-.42a1.53 1.53 0 1 1-3.07 0 1.53 1.53 0 0 1 3.07 0Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- FOOTER ---------------- -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">BRANDSTOFF<span class="dot">.</span></div>
+        <p>Marketing &amp; Strategie voor B2B-organisaties in Zeeland en daarbuiten. We fuel up brands.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Navigatie</h5>
+          <a href="#missie">Missie</a>
+          <a href="#niek">Over Niek</a>
+          <a href="#diensten">Diensten</a>
+          <a href="#merken">Merken</a>
+        </div>
+        <div class="foot-col">
+          <h5>Gegevens</h5>
+          <a href="mailto:info@brandstoff.nl">info@brandstoff.nl</a>
+          <a href="tel:+31613164494">+31 (0)6 131 644 94</a>
+          <a href="#contact">Schorerweg 1, IJzendijke</a>
+        </div>
+        <div class="foot-col">
+          <h5>Administratief</h5>
+          <a>KvK: 66206405</a>
+          <a>BTW: NL001707378B23</a>
+          <a href="#contact">Privacy &amp; Cookies</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> BRANDSTOFF. — Marketing &amp; Strategie. Alle rechten voorbehouden.</span>
+      <span>Gemaakt met de juiste brandstof.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header state
+  var hdr=document.getElementById('hdr');
+  function onScroll(){hdr.classList.toggle('scrolled',window.scrollY>20)}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // mobile menu
+  var mob=document.getElementById('mob');
+  document.getElementById('menuBtn').addEventListener('click',function(){mob.classList.toggle('open')});
+  mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open')})});
+  // year
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
