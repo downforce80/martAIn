@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Woningaanbod Terneuzen | Reham, dé makelaar van Zeeuws-Vlaanderen</title>
+<meta name="description" content="Op zoek naar een woning in Terneuzen? Bekijk het actuele woningaanbod en laat Reham je begeleiden bij koop, verkoop of taxatie. Sinds 1995, beoordeling 9.3.">
+<link rel="canonical" href="https://www.reham.nl/woningaanbod-terneuzen">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Woningaanbod Terneuzen | Reham Makelaars en Taxateurs">
+<meta property="og:description" content="Het complete woningaanbod in Terneuzen op één plek, met lokale kennis van elke wijk. Reham, beste makelaar van Zeeuws-Vlaanderen 2025.">
+<meta property="og:url" content="https://www.reham.nl/woningaanbod-terneuzen">
+<meta property="og:locale" content="nl_NL">
+
+<style>
+  :root {
+    --ink: #1a2e0b;
+    --ink-soft: #4a5640;
+    --paper: #f6f4ee;
+    --paper-warm: #edefe3;
+    --tide: #65B32E;
+    --tide-deep: #2a4b13;
+    --tide-bright: #80c053;
+    --sand: #c9a35f;
+    --line: #d8d2c4;
+    --white: #ffffff;
+    --maxw: 1140px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+  }
+
+  h1, h2, h3 {
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  a { color: var(--tide); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--tide);
+  }
+
+  /* ---------- Header ---------- */
+  header.site {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .brand {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .brand span { color: var(--tide); }
+  .brand-logo { display: inline-flex; align-items: center; }
+  .brand-logo img { height: 40px; width: auto; display: block; }
+  .nav-cta {
+    background: var(--tide-deep);
+    color: var(--white);
+    padding: 9px 18px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .nav-cta:hover { background: var(--tide); text-decoration: none; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(42,75,19,0.93) 0%, rgba(42,75,19,0.80) 100%);
+    color: #eef3f4;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(101,179,46,0.40) 0%, transparent 55%),
+      repeating-linear-gradient(180deg, transparent 0 38px, rgba(255,255,255,0.025) 38px 39px);
+    pointer-events: none;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 84px 24px 92px;
+  }
+  .hero .eyebrow { color: var(--sand); }
+  .hero h1 {
+    color: #fbfaf6;
+    font-size: clamp(2.2rem, 5.2vw, 3.7rem);
+    margin: 14px 0 18px;
+    max-width: 17ch;
+  }
+  .hero p.lead {
+    font-size: 1.18rem;
+    color: #d5e1e4;
+    max-width: 54ch;
+    margin: 0 0 30px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform .12s ease, background .18s ease;
+  }
+  .btn-primary { background: var(--sand); color: var(--tide-deep); }
+  .btn-primary:hover { background: #d8b673; text-decoration: none; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: #eef3f4; border: 1px solid rgba(255,255,255,0.4); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); text-decoration: none; }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 34px;
+    margin-top: 52px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+  }
+  .stat .num {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.9rem;
+    color: #fbfaf6;
+    line-height: 1;
+  }
+  .stat .lbl { font-size: 0.84rem; color: #b9cace; letter-spacing: 0.03em; }
+
+  /* ---------- Intro ---------- */
+  .section { padding: 72px 0; }
+  .section-tight { padding: 56px 0; }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .intro h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); margin: 10px 0 18px; }
+  .intro p { color: var(--ink-soft); margin: 0 0 16px; }
+  .intro-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0 1px 0 rgba(15,29,38,0.03);
+  }
+  .intro-card h3 { font-size: 1.15rem; margin: 0 0 6px; }
+  .intro-card .review {
+    font-size: 2.6rem;
+    font-family: "Fraunces", serif;
+    color: var(--tide);
+    line-height: 1;
+  }
+  .intro-card ul { list-style: none; padding: 0; margin: 18px 0 0; }
+  .intro-card li {
+    padding: 9px 0 9px 26px;
+    border-top: 1px solid var(--line);
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+  .intro-card li::before {
+    content: "";
+    position: absolute; left: 2px; top: 16px;
+    width: 8px; height: 8px;
+    background: var(--sand);
+    border-radius: 50%;
+  }
+
+  /* ---------- Listings placeholder ---------- */
+  .listings { background: var(--paper-warm); }
+  .listings-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 34px;
+  }
+  .listings-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); margin: 8px 0 0; }
+  .listings-head p { color: var(--ink-soft); margin: 6px 0 0; max-width: 48ch; }
+
+  .grid-listings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .listing {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .listing .photo {
+    aspect-ratio: 4 / 3;
+    background:
+      linear-gradient(135deg, var(--tide) 0%, var(--tide-deep) 100%);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .listing .photo span {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .listing .tag {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--sand);
+    color: var(--tide-deep);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+  .listing .body { padding: 18px 20px 22px; }
+  .listing h3 { font-size: 1.1rem; margin: 0 0 2px; }
+  .listing .addr { font-size: 0.9rem; color: var(--ink-soft); }
+  .listing .price {
+    margin-top: 12px;
+    font-family: "Fraunces", serif;
+    font-size: 1.3rem;
+    color: var(--tide);
+  }
+  .placeholder-note {
+    margin-top: 26px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    background: rgba(201,163,95,0.12);
+    border: 1px dashed var(--sand);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+
+  /* ---------- Wijken ---------- */
+  .wijken-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 34px;
+  }
+  .wijk {
+    border-left: 3px solid var(--tide);
+    padding: 6px 0 6px 20px;
+  }
+  .wijk h3 { font-size: 1.12rem; margin: 0 0 4px; }
+  .wijk p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
+
+  /* ---------- Steps ---------- */
+  .steps { background: var(--tide-deep); color: #e9f0f1; }
+  .steps h2 { color: #fbfaf6; font-size: clamp(1.7rem,3.4vw,2.4rem); }
+  .steps .eyebrow { color: var(--sand); }
+  .step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    margin-top: 34px;
+  }
+  .step .n {
+    font-family: "Fraunces", serif;
+    font-size: 1.05rem;
+    color: var(--sand);
+    border: 1px solid rgba(201,163,95,0.5);
+    width: 38px; height: 38px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 14px;
+  }
+  .step h3 { color: #fbfaf6; font-size: 1.18rem; margin: 0 0 8px; }
+  .step p { color: #b9cace; margin: 0; font-size: 0.96rem; }
+
+  /* ---------- FAQ ---------- */
+  .faq-list { margin-top: 30px; border-top: 1px solid var(--line); }
+  details {
+    border-bottom: 1px solid var(--line);
+    padding: 4px 0;
+  }
+  summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 40px 18px 0;
+    font-weight: 600;
+    font-size: 1.08rem;
+    position: relative;
+    color: var(--ink);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    position: absolute; right: 6px; top: 16px;
+    font-size: 1.5rem;
+    color: var(--tide);
+    font-weight: 400;
+    transition: transform .2s ease;
+  }
+  details[open] summary::after { content: "-"; }
+  details p { margin: 0 0 18px; color: var(--ink-soft); max-width: 70ch; }
+
+  /* ---------- CTA ---------- */
+  .cta-band {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    box-shadow: 0 2px 24px rgba(15,29,38,0.05);
+  }
+  .cta-band h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0 0 8px; max-width: 22ch; }
+  .cta-band p { margin: 0; color: var(--ink-soft); max-width: 46ch; }
+
+  /* ---------- Footer ---------- */
+  footer.site {
+    background: var(--ink);
+    color: #aebcc2;
+    padding: 48px 0 36px;
+    margin-top: 8px;
+  }
+  footer.site .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+  footer .brand { color: #fff; }
+  footer .brand span { color: var(--tide-bright); }
+  footer p { margin: 8px 0 0; font-size: 0.9rem; max-width: 40ch; }
+  footer .legal { font-size: 0.8rem; color: #6f8088; margin-top: 22px; width: 100%; border-top: 1px solid #1d2f3a; padding-top: 18px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 880px) {
+    .intro-grid { grid-template-columns: 1fr; gap: 36px; }
+    .grid-listings { grid-template-columns: 1fr 1fr; }
+    .wijken-grid { grid-template-columns: 1fr; }
+    .step-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .grid-listings { grid-template-columns: 1fr; }
+    .hero-inner { padding: 60px 24px 68px; }
+    .cta-band { padding: 30px; }
+    .nav-cta { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="https://www.reham.nl/" class="brand-logo" aria-label="Reham Makelaars en Taxateurs">
+      <img src="reham-logo.svg" alt="Reham Makelaars en Taxateurs" />
+    </a>
+    <a class="nav-cta" href="https://www.reham.nl/dienst/gratis-waardebepaling">Gratis waardebepaling</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Woningaanbod Terneuzen</p>
+    <h1>Het hele woningaanbod van Terneuzen, met de kennis van een lokale makelaar</h1>
+    <p class="lead">Zoek je een woning in Terneuzen? Bekijk het actuele aanbod op één plek en laat je begeleiden door het grootste makelaarskantoor van Zeeuws-Vlaanderen. Wij kennen elke wijk, van Terneuzen-Zuid tot Othene en de dorpen rondom de stad.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#aanbod">Bekijk het aanbod</a>
+      <a class="btn btn-ghost" href="#contact">Plan een kennismaking</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">285</div><div class="lbl">Verkochte woningen in 2024</div></div>
+      <div class="stat"><div class="num">95%</div><div class="lbl">Verkocht binnen 3 maanden</div></div>
+      <div class="stat"><div class="num">9.3</div><div class="lbl">Gemiddelde klantbeoordeling</div></div>
+      <div class="stat"><div class="num">30 jaar</div><div class="lbl">Ervaring in Zeeuws-Vlaanderen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="wrap intro-grid">
+    <div class="intro">
+      <p class="eyebrow">Wonen in Terneuzen</p>
+      <h2>Verder kijken dan een lijst met woningen</h2>
+      <p>Veel woningzoekers in Terneuzen beginnen hun zoektocht online en scrollen door het aanbod op Funda. Logisch, want daar staat vrijwel elk huis. Maar een lijst vertelt niet of een wijk bij je past, hoe de markt op dit moment beweegt of wat een vraagprijs in deze buurt echt waard is. Die kennis maakt het verschil tussen kijken en kopen.</p>
+      <p>Reham is sinds 1995 actief op de Zeeuws-Vlaamse woningmarkt en het grootste makelaarskantoor van de regio. We verkopen op jaarbasis de meeste woningen in en rond Terneuzen. Dat betekent dat we niet alleen het aanbod kennen, maar ook de straten, de scholen, de prijsontwikkeling en de mensen erachter.</p>
+      <p>Of je nu een eerste woning zoekt aan de rand van de stad, ruimer wilt wonen in een van de dorpen, of je huis in Terneuzen wilt verkopen: je staat er met Reham nooit alleen voor.</p>
+    </div>
+    <aside class="intro-card">
+      <div class="review">9,3</div>
+      <h3>Waardering van onze klanten</h3>
+      <p style="color:var(--ink-soft); font-size:0.95rem; margin:6px 0 0;">Beoordeeld door woningverkopers en kopers in Zeeuws-Vlaanderen.</p>
+      <ul>
+        <li>Topmakelaar van het Jaar 2025 in Zeeuws-Vlaanderen</li>
+        <li>Gecertificeerde, objectieve taxaties</li>
+        <li>3D-woningpresentatie van bijna elke woning</li>
+        <li>Gratis gebruik van de Reham Verhuisservice</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- LISTINGS PLACEHOLDER -->
+<section class="section listings" id="aanbod">
+  <div class="wrap">
+    <div class="listings-head">
+      <div>
+        <p class="eyebrow">Actueel aanbod</p>
+        <h2>Woningen te koop in Terneuzen</h2>
+        <p>Een selectie uit het actuele aanbod. Bekijk alle beschikbare woningen, inclusief 3D-presentatie en plattegronden, in ons complete overzicht.</p>
+      </div>
+      <a class="btn btn-primary" href="https://www.reham.nl/huizenaanbod?aanbod[]=koopwoningen" style="background:var(--tide-deep); color:#fff;">Volledig aanbod bekijken</a>
+    </div>
+
+    <div class="grid-listings">
+      <article class="listing">
+        <a href="https://www.reham.nl/huizenaanbod/tapijtschelp-56-3787" style="text-decoration:none; color:inherit; display:flex; flex-direction:column; height:100%;">
+          <div class="photo"><span class="tag">3D-tour</span><span>Woningfoto</span></div>
+          <div class="body">
+            <h3>Tapijtschelp 56</h3>
+            <div class="addr">Terneuzen</div>
+            <div class="price">€ 475.000 k.k.</div>
+          </div>
+        </a>
+      </article>
+      <article class="listing">
+        <a href="https://www.reham.nl/huizenaanbod/kanaalkade-73-3785" style="text-decoration:none; color:inherit; display:flex; flex-direction:column; height:100%;">
+          <div class="photo"><span class="tag">3D-tour</span><span>Woningfoto</span></div>
+          <div class="body">
+            <h3>Kanaalkade 73</h3>
+            <div class="addr">Axel</div>
+            <div class="price">€ 310.000 k.k.</div>
+          </div>
+        </a>
+      </article>
+      <article class="listing">
+        <a href="https://www.reham.nl/huizenaanbod/zeildijk-2-3788" style="text-decoration:none; color:inherit; display:flex; flex-direction:column; height:100%;">
+          <div class="photo"><span class="tag">3D-tour</span><span>Woningfoto</span></div>
+          <div class="body">
+            <h3>Zeildijk 2</h3>
+            <div class="addr">Hulst</div>
+            <div class="price">€ 495.000 k.k.</div>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <div class="placeholder-note">
+      Hier komt de feed van Realworks.
+    </div>
+  </div>
+</section>
+
+<!-- WIJKEN -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">De buurten</p>
+    <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem); margin:8px 0 0;">Waar wil je wonen in Terneuzen?</h2>
+    <p style="color:var(--ink-soft); max-width:60ch; margin:14px 0 0;">Terneuzen is meer dan één plaats. Elke wijk en elk omliggend dorp heeft een eigen sfeer en prijsniveau. Een korte oriëntatie helpt je gerichter zoeken.</p>
+
+    <div class="wijken-grid">
+      <div class="wijk">
+        <h3>Terneuzen-Zuid</h3>
+        <p>Ruim opgezette woonwijken met veel eengezinswoningen en groen. Populair bij gezinnen die ruimte zoeken dicht bij voorzieningen.</p>
+      </div>
+      <div class="wijk">
+        <h3>Othene</h3>
+        <p>Een van de nieuwere wijken aan de oostkant, met water, jachthaven en moderne woningen. Geliefd om de combinatie van rust en ruimte.</p>
+      </div>
+      <div class="wijk">
+        <h3>Centrum en Binnenstad</h3>
+        <p>Wonen op loopafstand van winkels, horeca en de Westerschelde. Van karakteristieke panden tot appartementen met uitzicht op het water.</p>
+      </div>
+      <div class="wijk">
+        <h3>Serlippenspolder en Zeldenrust</h3>
+        <p>Gewilde woonbuurten met een mix van rijwoningen en twee-onder-een-kappers, op fietsafstand van het centrum.</p>
+      </div>
+      <div class="wijk">
+        <h3>Dorpen: Sluiskil, Zaamslag, Axel</h3>
+        <p>Dorps wonen met een sterke gemeenschap, vaak meer vierkante meters voor je geld en korte lijnen naar de stad.</p>
+      </div>
+      <div class="wijk">
+        <h3>Aan het water</h3>
+        <p>Terneuzen ligt aan de Westerschelde en het kanaal naar Gent. Voor wie van open water en ruimte houdt, is er volop te kiezen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section steps">
+  <div class="wrap">
+    <p class="eyebrow">Zo werken we</p>
+    <h2>Van zoeken naar de sleutel</h2>
+    <div class="step-grid">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>Oriënteren</h3>
+        <p>Bekijk het actuele aanbod en ontdek welke wijk bij je past. We denken met je mee over wat haalbaar en verstandig is.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>Bezichtigen</h3>
+        <p>Dankzij de 3D-presentaties zie je vooraf de hele woning. Je plant alleen een bezichtiging voor de huizen die er echt toe doen.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>Aankopen of verkopen</h3>
+        <p>Onze makelaars en taxateurs begeleiden je van bod tot overdracht. Verkoop je zelf? Dan helpt Reham 't Zelf je op weg.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap" style="max-width:880px;">
+    <p class="eyebrow">Veelgestelde vragen</p>
+    <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem); margin:8px 0 0;">Woning zoeken in Terneuzen</h2>
+
+    <div class="faq-list">
+      <details open>
+        <summary>Waar vind ik het woningaanbod van Terneuzen?</summary>
+        <p>Het complete aanbod van koopwoningen in Terneuzen vind je online, onder andere op Funda en op deze pagina van Reham. Het voordeel van rechtstreeks bij Reham kijken is dat je naast de woninggegevens ook lokale kennis en een 3D-presentatie krijgt, plus een makelaar die je verder helpt zodra je een woning interessant vindt.</p>
+      </details>
+      <details>
+        <summary>Hoeveel huizen staan er te koop in Terneuzen?</summary>
+        <p>Het aantal beschikbare woningen wisselt voortdurend. In de gemeente Terneuzen gaat het doorgaans om enkele honderden woningen, verspreid over de stad en de omliggende dorpen. Bekijk ons actuele overzicht voor het meest recente aanbod.</p>
+      </details>
+      <details>
+        <summary>Heb ik een aankoopmakelaar nodig in Terneuzen?</summary>
+        <p>Dat hoeft niet, maar het scheelt vaak tijd, stress en geld. Een aankoopmakelaar kent de lokale markt, beoordeelt of een vraagprijs reëel is en onderhandelt namens jou. Zeker in een markt waarin goede woningen snel verkopen, is lokale kennis waardevol.</p>
+      </details>
+      <details>
+        <summary>Wat is mijn woning in Terneuzen waard?</summary>
+        <p>De waarde hangt af van locatie, type, staat en de actuele markt. Reham verzorgt als gecertificeerd taxateur objectieve taxaties en een gratis waardebepaling als je overweegt te verkopen. Zo weet je precies waar je staat voordat je een beslissing neemt.</p>
+      </details>
+      <details>
+        <summary>Wat is een 3D-woningpresentatie?</summary>
+        <p>Bij vrijwel elke woning maakt Reham een online 3D-presentatie. Je loopt als het ware door het hele huis, van vloer tot plafond, op je eigen moment en in je eigen tempo. Zo selecteer je gerichter en plan je alleen bezichtigingen voor woningen die echt passen.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-tight" id="contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <p class="eyebrow">Persoonlijk contact</p>
+        <h2>Begin je zoektocht in Terneuzen met de juiste makelaar naast je</h2>
+        <p>Plan een vrijblijvende kennismaking of vraag een gratis waardebepaling aan. We vertellen je graag wat er speelt op de Terneuzense woningmarkt.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <a class="btn btn-primary" href="tel:+31115432514" style="text-align:center;">Bel 0115 432 514</a>
+        <a class="btn" href="https://wa.me/31623875904" style="background:var(--tide-deep); color:#fff; text-align:center;">WhatsApp ons</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <div class="brand">Re<span>ham</span> Makelaars en Taxateurs</div>
+      <p>Sinds 1995 dé makelaar van Zeeuws-Vlaanderen. Voor koop, verkoop en taxatie in Terneuzen, Hulst en omgeving.</p>
+    </div>
+    <div>
+      <p><strong style="color:#fff;">Reham Makelaars en Taxateurs</strong><br>
+      Terneuzensestraat 10, 4543 BN Zaamslag<br>
+      Steenstraat 34, 4561 AS Hulst<br>
+      Tel. <a href="tel:+31115432514" style="color:#aebcc2;">0115 432 514</a><br>
+      WhatsApp <a href="https://wa.me/31623875904" style="color:#aebcc2;">06 23 87 59 04</a><br>
+      <a href="mailto:info@reham.nl" style="color:#aebcc2;">info@reham.nl</a></p>
+    </div>
+    <p class="legal">© <span id="yr"></span> Reham Makelaars en Taxateurs. Woningaanbod onder voorbehoud van wijzigingen. Funda is een handelsmerk van Funda Real Estate B.V.; deze pagina is een onafhankelijk overzicht van Reham.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+<!-- ============ STRUCTURED DATA ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Reham Makelaars en Taxateurs",
+  "description": "Makelaarskantoor in Zeeuws-Vlaanderen voor koop, verkoop en taxatie van woningen in Terneuzen, Hulst en omgeving. Sinds 1995 actief.",
+  "url": "https://www.reham.nl/woningaanbod-terneuzen",
+  "logo": "https://www.reham.nl/theme/reham/images/logo.svg",
+  "telephone": "+31 115 432 514",
+  "email": "info@reham.nl",
+  "priceRange": "\u20ac\u20ac",
+  "areaServed": [
+    { "@type": "City", "name": "Terneuzen" },
+    { "@type": "City", "name": "Hulst" },
+    { "@type": "AdministrativeArea", "name": "Zeeuws-Vlaanderen" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Terneuzensestraat 10",
+    "addressLocality": "Zaamslag",
+    "postalCode": "4543 BN",
+    "addressRegion": "Zeeland",
+    "addressCountry": "NL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 51.312824,
+    "longitude": 3.910565
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "09:00",
+      "closes": "17:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "09:00",
+      "closes": "16:15"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/Rehammakelaars",
+    "https://www.instagram.com/rehammakelaars/",
+    "https://www.linkedin.com/company/reham-vastgoed-bv"
+  ],
+  "award": "Topmakelaar van het Jaar 2025 in Zeeuws-Vlaanderen"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Waar vind ik het woningaanbod van Terneuzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Het complete aanbod van koopwoningen in Terneuzen vind je online, onder andere op Funda en bij Reham. Bij Reham krijg je naast de woninggegevens ook lokale kennis, een 3D-presentatie en een makelaar die je verder helpt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoeveel huizen staan er te koop in Terneuzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Het aantal wisselt voortdurend. In de gemeente Terneuzen gaat het doorgaans om enkele honderden woningen, verspreid over de stad en de omliggende dorpen. Bekijk het actuele overzicht van Reham voor het meest recente aanbod."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Heb ik een aankoopmakelaar nodig in Terneuzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Het hoeft niet, maar het scheelt vaak tijd, stress en geld. Een aankoopmakelaar kent de lokale markt, beoordeelt of een vraagprijs reëel is en onderhandelt namens jou."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat is mijn woning in Terneuzen waard?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De waarde hangt af van locatie, type, staat en de actuele markt. Reham verzorgt objectieve taxaties en een gratis waardebepaling als je overweegt te verkopen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat is een 3D-woningpresentatie?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bij vrijwel elke woning maakt Reham een online 3D-presentatie waarmee je het hele huis op afstand bekijkt, op je eigen moment en in je eigen tempo. Zo plan je alleen bezichtigingen voor woningen die echt passen."
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
