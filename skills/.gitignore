@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+# Lokale Odoo-config met API-key hoort NOOIT in git:
+odoo.json
+.config/
