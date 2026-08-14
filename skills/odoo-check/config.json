@@ -1,0 +1,6 @@
+{
+  "url": "https://odooaktiv-beautyleverancier.odoo.com",
+  "db": "self.env.cr.dbname",
+  "username": "martijn@beautyleverancier.nl",
+  "api_key": "f33240b88bda8946fbdd13cf896127d86c4a9e3a"
+}
