@@ -4,20 +4,20 @@ function Hero({ onNav }) {
       <div className="wrap hero-grid">
         <div className="reveal">
           <span className="eyebrow">Voor het mkb</span>
-          <h1>AI die gewoon je werk <span className="ds-grad-text">uit handen neemt.</span></h1>
+          <h1>Minder handwerk, <span className="ds-grad-text">meer gedaan krijgen.</span></h1>
           <p className="lead">
-            Ik help je de standaardklussen slim automatiseren — praktisch en verantwoord.
-            Zodat jij en je team tijd overhouden voor klant, proces en product.
+            Ik neem terugkerend werk uit handen: offertes, e-mail, administratie, klantvragen,
+            planning en rapportages. Zodat jij en je team tijd overhouden voor klanten en het echte werk.
           </p>
           <div className="hero-cta">
             <button className="btn btn-primary" onClick={() => onNav('contact')}>
               Plan een kennismaking <Icon name="arrow-right" />
             </button>
             <button className="btn btn-ghost" onClick={() => onNav('services')}>
-              Bekijk wat ik doe
+              Bekijk welk werk slimmer kan
             </button>
           </div>
-          <p className="hero-sign">"Geen ruis. Gewoon AI die je dag lichter maakt." — Martijn</p>
+          <p className="hero-sign">"Geen ruis. Gewoon minder werk op je bord." <span className="hero-sign-by">Martijn</span></p>
         </div>
 
         <div className="visual reveal">
@@ -35,7 +35,7 @@ function Hero({ onNav }) {
           </div>
           <div className="float f3">
             <div className="fi" style={{ background: 'var(--brand-violet)' }}><Icon name="shield-check" /></div>
-            <div><div className="ft">Verantwoord</div><div className="fs">geen black box</div></div>
+            <div><div className="ft">Jij houdt controle</div><div className="fs">inzicht en een menselijke check</div></div>
           </div>
         </div>
       </div>

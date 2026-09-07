@@ -21,13 +21,13 @@ function Footer({ onNav }) {
           </div>
           <div className="foot-col">
             <h5>Contact</h5>
-            <a href="mailto:hallo@martain.nl">hallo@martain.nl</a>
+            <a onClick={() => onNav('contact')}>Stuur een bericht</a>
             <a>Nederland</a>
           </div>
         </div>
         <div className="foot-bottom">
           <span>© {new Date().getFullYear()} MartAIn. Alle rechten voorbehouden.</span>
-          <span>Praktisch en verantwoord — geen black box.</span>
+          <span>Praktisch en verantwoord: jij houdt inzicht en controle.</span>
         </div>
       </div>
     </footer>

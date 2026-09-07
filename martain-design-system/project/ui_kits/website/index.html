@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MartAIn — Praktische AI voor ondernemers</title>
+<title>MartAIn | Praktische AI voor ondernemers</title>
 <link rel="icon" href="../../assets/logo-mark.png">
 <link rel="stylesheet" href="../../colors_and_type.css">
 <style>
@@ -51,6 +51,7 @@
   .hero .lead{font-size:20px;line-height:1.6;color:var(--gray-700);margin:22px 0 32px;max-width:520px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
   .hero-sign{font-family:var(--font-serif);font-style:italic;font-size:17px;color:var(--gray-600);margin-top:26px}
+  .hero-sign-by{font-family:var(--font-display);font-style:normal;font-weight:600;font-size:14px;color:var(--gray-700);margin-left:10px}
 
   /* hero visual */
   .visual{position:relative;border-radius:var(--radius-xl);background:var(--grad-deep);padding:40px;min-height:420px;overflow:hidden;box-shadow:var(--shadow-lg)}
@@ -97,9 +98,7 @@
 
   /* proof */
   .proof{text-align:center}
-  .proof .quote{font-family:var(--font-serif);font-style:italic;font-weight:500;font-size:34px;line-height:1.4;color:var(--ink);max-width:880px;margin:0 auto}
-  .proof .quote .hl{color:var(--brand-violet)}
-  .proof .by{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--gray-600);margin-top:26px}
+  .proof h2{font-family:var(--font-display);font-weight:700;font-size:38px;line-height:1.12;letter-spacing:-.02em;color:var(--ink);margin:14px auto 0;max-width:720px}
   .stats{display:flex;justify-content:center;gap:64px;margin-top:56px;flex-wrap:wrap}
   .stat .n{font-family:var(--font-display);font-weight:800;font-size:46px;letter-spacing:-.02em}
   .stat .l{font-size:14px;color:var(--gray-600);margin-top:4px}
@@ -117,6 +116,9 @@
   .form input:focus,.form textarea:focus{border-color:var(--brand-blue);box-shadow:0 0 0 3px rgba(0,97,209,.16)}
   .form textarea{resize:vertical;min-height:84px}
   .form .btn{width:100%;justify-content:center}
+  .form .btn:disabled{opacity:.6;cursor:wait;transform:none}
+  .form .bot-field{display:none}
+  .form-error{font-size:14px;line-height:1.5;color:var(--error);background:var(--error-bg);border:1px solid rgba(220,59,75,.25);border-radius:var(--radius-sm);padding:10px 12px;margin:0 0 16px}
   .form-success{position:relative;background:rgba(255,255,255,.97);border-radius:var(--radius-lg);padding:48px 28px;box-shadow:var(--shadow-xl);text-align:center}
   .form-success .ok{width:62px;height:62px;border-radius:50%;background:var(--success-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
   .form-success .ok svg{width:32px;height:32px;color:var(--success)}
@@ -148,7 +150,7 @@
     .foot-grid{grid-template-columns:1fr 1fr}
     .nav-links,.nav-actions .btn{display:none}
     .menu-btn{display:block}
-    .proof .quote{font-size:26px}
+    .proof h2{font-size:30px}
     .stats{gap:36px}
   }
   /* Content is always visible by default — no opacity-based entrance, so it
@@ -157,6 +159,15 @@
 </style>
 </head>
 <body>
+<!-- Statisch spiegelformulier voor Netlify Forms. Netlify scant dit bij deploy;
+     het echte formulier wordt door React gerenderd in Contact.jsx. Zelfde naam en velden houden. -->
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="contact" />
+  <input name="bot-field" />
+  <input name="naam" />
+  <input type="email" name="email" />
+  <textarea name="bericht"></textarea>
+</form>
 <div id="root"></div>
 
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>

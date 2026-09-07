@@ -7,11 +7,8 @@ function Proof() {
   return (
     <section className="proof" id="proof">
       <div className="wrap">
-        <p className="quote reveal">
-          "Martijn maakte AI ineens <span className="hl">concreet</span>. Geen verhaal over de
-          toekomst — gewoon iets dat vandaag al werk uit handen neemt."
-        </p>
-        <p className="by reveal">— Voorbeeldquote · mkb-ondernemer</p>
+        <span className="eyebrow">Resultaat</span>
+        <h2>Wat het je oplevert</h2>
         <div className="stats">
           {stats.map(([n, l, c], i) => (
             <div className="stat reveal" key={i} style={{ transitionDelay: (i * 80) + 'ms' }}>

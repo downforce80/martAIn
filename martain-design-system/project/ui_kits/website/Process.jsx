@@ -1,17 +1,17 @@
 function Process() {
   const steps = [
-    ['Kennismaken', 'We bespreken je bedrijf, je werk en waar de tijd weglekt. Vrijblijvend.'],
-    ['Analyse', 'Ik breng in kaart welke standaardklussen zich lenen voor slimme automatisering.'],
-    ['Bouwen', 'Samen zetten we de eerste werkende oplossing live — klein beginnen, snel resultaat.'],
-    ['Begeleiden', 'Ik train je team en blijf bijsturen, zodat het beklijft en meegroeit.'],
+    ['Kennismaken', 'We bespreken je bedrijf en waar de tijd naartoe gaat. Vrijblijvend.'],
+    ['Kansen bepalen', 'Samen kiezen we welk werk het meest oplevert om slimmer of automatisch te doen.'],
+    ['Bouwen', 'Ik bouw de eerste oplossing en zet hem live. Jij ziet meteen wat het scheelt.'],
+    ['Uitbreiden', 'Werkt het? Dan pakken we de volgende taak. Je team leert onderweg mee.'],
   ];
   return (
     <section className="process" id="process">
       <div className="wrap">
         <div className="sec-head reveal">
           <span className="eyebrow">Werkwijze</span>
-          <h2>Van kennismaking tot resultaat</h2>
-          <p>Een rustige, stapsgewijze aanpak. Geen grote IT-trajecten — wel snel iets dat werkt.</p>
+          <h2>Zo werkt het</h2>
+          <p>Vier stappen. Klein beginnen, snel resultaat, daarna uitbreiden.</p>
         </div>
         <div className="steps">
           {steps.map(([t, d], i) => (
